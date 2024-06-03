@@ -1,5 +1,5 @@
 exp:
-	export DBURL="postgres://mrbek:QodirovCoder@localhost:5432/farmish?sslmode=disable"
+	export DBURL="postgres://postgres:00salom00@localhost:5432/farmish?sslmode=disable"
 
 mig-up:
 	migrate -path migrations -database ${DBURL} -verbose up
