@@ -36,7 +36,7 @@ type AnimalsGetAll struct {
 type AnimalCreate struct {
 	ID         int32
 	Type       string
-	Birth      time.Time
+	Birth      string
 	Weight     int32
 	AnimalType string
 	IsHealthy  bool

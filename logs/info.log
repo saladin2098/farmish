@@ -1,0 +1,6 @@
+[ERROR]  2024/06/03 14:13:46 checkErr.go:17: pq: column "name" of relation "medications" does not exist
+[ERROR]  2024/06/03 14:26:49 checkErr.go:17: pq: syntax error at or near "id"
+[ERROR]  2024/06/03 14:28:01 checkErr.go:17: pq: syntax error at or near "id"
+[ERROR]  2024/06/03 15:13:47 checkErr.go:17: pq: duplicate key value violates unique constraint "medications_pkey"
+[ERROR]  2024/06/03 15:16:46 checkErr.go:17: error scanning row: sql: Scan error on column index 2, name "medications": unsupported Scan, storing driver.Value type []uint8 into type *[]models.Medications
+[ERROR]  2024/06/03 15:28:44 checkErr.go:17: error scanning row: sql: Scan error on column index 2, name "medications": unsupported Scan, storing driver.Value type []uint8 into type *[]models.Medications

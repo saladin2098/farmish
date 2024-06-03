@@ -7,11 +7,22 @@ type Medications struct{
 	Quantity float32
 }
 
+type MedicationsGet struct{
+	Name string
+	Type string
+	Quantity float32
+}
+
 
 type MedicinesGetAll struct{
-	Count int32
-	Medications *[]Medications
+	Type string
+	Count int
+	Medications []MedicationsGet
 }
+type MedicarionaGrouped struct {
+	Medications []MedicinesGetAll
+}
+
 
 type HealthCondition struct {
 	ID        int

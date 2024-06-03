@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS schedules (
 -- Create the medications table
 CREATE TABLE IF NOT EXISTS medications (
     id INT PRIMARY KEY,
+    name VARCHAR(255),
     type VARCHAR(255),
     quantity FLOAT DEFAULT 0
 );
