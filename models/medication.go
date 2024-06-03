@@ -20,4 +20,4 @@ type HealthCondition struct {
 	Condition string
 	Medication string
 	IsTreated bool
-}
+ }
