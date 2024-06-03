@@ -1,0 +1,189 @@
+definitions:
+  models.CreateProvision:
+    properties:
+      animalType:
+        type: string
+      id:
+        type: integer
+      quantity:
+        type: number
+      type:
+        type: string
+    type: object
+  models.GetAllProvisions:
+    properties:
+      count:
+        type: integer
+      provisions:
+        items:
+          $ref: '#/definitions/models.GetProvision'
+        type: array
+    type: object
+  models.GetProvision:
+    properties:
+      id:
+        type: integer
+      quantity:
+        type: number
+      type:
+        type: string
+    type: object
+  models.UpdateProvision:
+    properties:
+      id:
+        type: integer
+      quantity:
+        type: number
+      type:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /provision:
+    get:
+      consumes:
+      - application/json
+      description: Get All Provisions
+      operationId: get_all_provisions
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Provisions data
+          schema:
+            $ref: '#/definitions/models.GetAllProvisions'
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Get All Provisions
+      tags:
+      - Provision
+    post:
+      consumes:
+      - application/json
+      description: Create Provision
+      operationId: create_provision
+      parameters:
+      - description: Created Provision
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateProvision'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Provision data
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Create Provision
+      tags:
+      - Provision
+  /provision/:
+    put:
+      consumes:
+      - application/json
+      description: Update a provision
+      operationId: update_provision
+      parameters:
+      - description: Provision ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Provision data
+        in: body
+        name: provision
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateProvision'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Provision updated successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Update Provision
+      tags:
+      - Provision
+  /provision/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a provision by ID
+      operationId: delete_provision
+      parameters:
+      - description: Provision ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Provision deleted successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Delete Provision
+      tags:
+      - Provision
+  /rovision/{id}{type}{animal_type}{quantity}:
+    get:
+      consumes:
+      - application/json
+      description: Get a provision by ID
+      operationId: get_provision_by_id
+      parameters:
+      - description: Provision ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Provision data
+          schema:
+            $ref: '#/definitions/models.GetProvision'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Get Provision By ID
+      tags:
+      - Provision
+swagger: "2.0"
