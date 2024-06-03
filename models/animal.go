@@ -5,7 +5,7 @@ import "time"
 type Animal struct {
 	ID              int32
 	Type            string
-	Birth           time.Time
+	Birth           string
 	Weight          int32
 	HealthCondition HealthCondition
 	Feeding         FeedingSchedule
@@ -20,7 +20,7 @@ type Animal struct {
 type AnimalGet struct {
 	ID              int32
 	Type            string
-	Birth           time.Time
+	Birth           string
 	Weight          int32
 	HealthCondition HealthCondition
 	Feeding         FeedingSchedule
@@ -36,7 +36,7 @@ type AnimalsGetAll struct {
 type AnimalCreate struct {
 	ID         int32
 	Type       string
-	Birth      time.Time
+	Birth      string
 	Weight     int32
 	AnimalType string
 	IsHealthy  bool
@@ -52,7 +52,18 @@ type AnimalUpdate struct {
 	Medication string
 }
 
+type Schedule struct {
+	ID         int
+	AnimalType string
+	Time1      time.Time
+	Time2      time.Time
+	Time3      time.Time
+}
+
 type FeedingSchedule struct {
 	ID           int
-	LastFedINdex int
+	LastFedIndex int
+	Sch1         int
+	Sch2         int
+	Sch3         int
 }

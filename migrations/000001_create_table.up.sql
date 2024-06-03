@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS animals (
 );
 
 -- Create the feeding_schedule table
-CREATE TABLE IF NOT EXISTS feeding_schedule (
+CREATE TABLE IF NOT EXISTS feeding_schedules (
     id INT PRIMARY KEY,
     animal_type VARCHAR(255),
     last_fed_index feeding_index,
@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS schedules (
 CREATE TABLE IF NOT EXISTS medications (
     id INT PRIMARY KEY,
     type VARCHAR(255),
+    name VARCHAR(255),
     quantity FLOAT DEFAULT 0
 );
 

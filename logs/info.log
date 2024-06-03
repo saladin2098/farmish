@@ -1,0 +1,9 @@
+[ERROR]  2024/06/03 13:03:12 main.go:40: pq: column "avg_consumtion" of relation "animals" does not exist
+[ERROR]  2024/06/03 13:03:22 main.go:40: pq: column "is_healthy" of relation "animals" does not exist
+[ERROR]  2024/06/03 13:04:30 main.go:40: pq: got 9 parameters but the statement requires 6
+[ERROR]  2024/06/03 13:12:14 main.go:40: pq: duplicate key value violates unique constraint "animals_pkey"
+[ERROR]  2024/06/03 13:14:59 main.go:40: pq: duplicate key value violates unique constraint "animals_pkey"
+[ERROR]  2024/06/03 13:15:17 main.go:40: pq: INSERT has more target columns than expressions
+[ERROR]  2024/06/03 14:31:54 main.go:38: pq: duplicate key value violates unique constraint "schedules_pkey"
+[ERROR]  2024/06/03 14:36:43 main.go:36: number not generated: the list is full
+[ERROR]  2024/06/03 14:37:52 main.go:36: number not generated: the list is full
