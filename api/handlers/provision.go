@@ -3,6 +3,8 @@ package handlers
 import (
 	"database/sql"
 	"farmish/models"
+	"farmish/postgres/managers"
+	"farmish/service"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -21,7 +23,7 @@ var (
 // @Tags Provision
 // @Accept json
 // @Produce json
-// @Param user body models.CreateProvision true "Created Provision"
+// @Param user body models.BodyProvision true "Created Provision"
 // @Success 201 {object} string "Provision data"
 // @Response 400 {object} string "Bad Request"
 // @Failure 500 {object} string "Server Error"
@@ -32,7 +34,8 @@ func (h *HTTPHandler) CreateProvision(c *gin.Context) {
 		return
 	}
 
-	createdProvision, err := h.Service.CreateProvision(&body)
+	var provisionService = service.ProvisionService{PR: &managers.ProvisionRepo{db}}
+	createdProvision, err := provisionService.CreateProvision(&body)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return

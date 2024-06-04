@@ -11,10 +11,8 @@ import (
 func NewGin(h *handlers.HTTPHandler) *gin.Engine {
 	r := gin.Default()
 
-	// Serve Swagger UI
 	r.GET("/api/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
-	// Define routes for provision-related endpoints
 	provision := r.Group("/provision")
 	provision.POST("/", h.CreateProvision)
 	provision.GET("/:id/:type/:animal_type/:quantity", h.GetProvision)

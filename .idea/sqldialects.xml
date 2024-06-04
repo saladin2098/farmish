@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/migrations/000001_create_table.down.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/migrations/000001_create_table.up.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/migrations/000002_insert_table.down.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/migrations/000002_insert_table.up.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/postgres/managers/animal.go" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/postgres/managers/medication.go" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/postgres/managers/medication_test.go" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/postgres/managers/provision.go" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/postgres/managers/provision_test.go" dialect="GenericSQL" />
+  </component>
+</project>

@@ -1,28 +1,35 @@
 package main
 
 import (
-	"farmish/api"
-	"farmish/api/handlers"
-	"farmish/config"
-	"farmish/config/logger"
-	p "farmish/postgres"
+	"farmish/models"
 	"farmish/service"
-	"strconv"
+	"fmt"
 )
 
 func main() {
-	cfg := config.Load()
+	//cfg := config.Load()
+	//
+	//log := logger.NewLogger("logs", "log.txt")
+	//
+	//db, err := p.ConnectDB(cfg)
+	//if err != nil {
+	//	log.ERROR.Fatalln("Error connecting to the database:", err)
+	//}
+	//
+	//srv := service.NewService(db)
+	//h := handlers.NewHTTPHandler(srv, *log)
+	//r := api.NewGin(h)
+	//
+	//r.Run()
 
-	log := logger.NewLogger("logs", "log.txt")
-
-	db, err := p.ConnectDB(cfg)
-	if err != nil {
-		log.ERROR.Fatalln("Error connecting to the database:", err)
+	pr := models.BodyProvision{
+		AnimalType: "Mammals",
+		Type:       "Hay",
+		Quantity:   10,
 	}
 
-	srv := service.NewService(db)
-	h := handlers.NewHTTPHandler(srv, *log)
-	r := api.NewGin(h)
+	s := service.Service{}
+	prs, err := s.CreateProvision(&pr)
 
-	r.Run(":" + strconv.Itoa(cfg.HTTP_PORT))
+	fmt.Println(prs, err)
 }
