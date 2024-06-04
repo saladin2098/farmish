@@ -1,1 +1,1 @@
-delete from schedules;
+-- delete from schedules;

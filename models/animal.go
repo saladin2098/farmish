@@ -65,7 +65,4 @@ type Schedule struct {
 type FeedingSchedule struct {
 	ID           int
 	LastFedIndex int
-	Sch1         int
-	Sch2         int
-	Sch3         int
 }

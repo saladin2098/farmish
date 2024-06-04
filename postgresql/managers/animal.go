@@ -3,6 +3,8 @@ package managers
 import (
 	"database/sql"
 	"farmish/models"
+	"fmt"
+	"time"
 )
 
 type AnimalRepo struct {
@@ -58,6 +60,55 @@ func (m *AnimalRepo) GetAllAnimalIds() ([]int, error) {
 	}
 
 	return ids, nil
+}
+
+func (m *AnimalRepo) GetAllAnimals(animal_type string, is_healthy bool, is_hungry bool) (*models.AnimalsGetAll, error) {
+
+	query := `
+	SELECT a.id, a.type, a.animal_type, a.birth, a.weight, hc.is_healthy, hc.condition, hc.medication, fs.last_fed_index, fs.sch1, fs.sch2, fs.sch3, a.avg_consumption, a.avg_water, a.created_at, a.updated_at, a.deleted_at
+	FROM animals a
+	JOIN health_conditions hc ON a.id = hc.animal_id
+	JOIN feeding_schedules fs ON a.id = fs.animal_id
+	WHERE a.deleted_at = 0
+	`
+	var agrs []interface{}
+	paramIndex := 1
+	if animal_type != "" {
+		query += fmt.Sprintf(" AND a.type = $%d", paramIndex)
+		agrs = append(agrs, animal_type)
+		paramIndex++
+	}
+	if is_healthy {
+		query += fmt.Sprintf(" AND hc.is_healthy = $%d", paramIndex)
+		agrs = append(agrs, is_healthy)
+		paramIndex++
+	}
+	if is_hungry {
+		index, err := m.GetNextFedIndex(animal_type)
+		if err != nil {
+			return nil, err
+		}
+		schedule_id, err := m.GetScheduleID(animal_type)
+		if err != nil {
+			return nil, err
+		}
+		lastFedTimeStr, err := m.GetLastFedTime(index, schedule_id)
+		if err != nil {
+			return nil, err
+		}
+		lastFedTime, err := time.Parse(time.TimeOnly, lastFedTimeStr)
+		if err != nil {
+			return nil, err
+		}
+		fmt.Println(lastFedTime)
+	}
+
+	rows, err := m.Conn.Query(query, agrs...)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	return nil, nil
 }
 
 func (m *AnimalRepo) CreateAnimal(animal *models.AnimalCreate, avg_water, avg_consumtion float64, gen_id int) (*models.Animal, error) {
@@ -153,4 +204,45 @@ func (m *AnimalRepo) DeleteAnimal(id int) error {
 		return err
 	}
 	return nil
+}
+
+func (m *AnimalRepo) GetNextFedIndex(animal_type string) (int, error) {
+	query := "SELECT next_fed_index FROM feeding_schedules WHERE animal_type = $1"
+	row := m.Conn.QueryRow(query, animal_type)
+	var nextFedIndex int
+	err := row.Scan(&nextFedIndex)
+	if err != nil {
+		return 0, err
+	}
+	return nextFedIndex, nil
+}
+
+func (m *AnimalRepo) GetLastFedTime(index int, schedule_id int) (string, error) {
+	query := ""
+	if index == 1 {
+		query = "SELECT time1 FROM schedules WHERE id = $1"
+
+	} else if index == 2 {
+		query = "SELECT time2 FROM schedules WHERE id = $1"
+	} else if index == 3 {
+		query = "SELECT time3 FROM schedules WHERE id = $1"
+	}
+	row := m.Conn.QueryRow(query, schedule_id)
+	var lastFedTime string
+	err := row.Scan(&lastFedTime)
+	if err != nil {
+		return "", err
+	}
+	return lastFedTime, nil
+}
+
+func (m *AnimalRepo) GetScheduleID(animal_type string) (int, error) {
+	query := "SELECT schedule_id FROM feeding_schedules WHERE animal_type = $1"
+	row := m.Conn.QueryRow(query, animal_type)
+	var scheduleID int
+	err := row.Scan(&scheduleID)
+	if err != nil {
+		return 0, err
+	}
+	return scheduleID, nil
 }

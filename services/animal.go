@@ -46,6 +46,11 @@ func (s *AnimalService) CreateAnimal(animal *models.AnimalCreate) error {
 	duration := time.Since(birth)
 	lived_days := int32(duration.Hours() / 24)
 
+	// lived_days, err := s.AR.GetAnimalAgeInDays(int(newAnimal.ID))
+	// if err != nil {
+	// 	return err
+	// }
+
 	if newAnimal.AnimalType == "parranda" {
 		wc, fc := config.CalcConsumptionForPoultry(float64(lived_days))
 		err := s.AR.UpdateAvgConsumption(int(newAnimal.ID), math.Round((wc/3)*1000)/1000, math.Round((fc/3)*1000)/1000)
