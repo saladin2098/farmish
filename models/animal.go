@@ -64,5 +64,8 @@ type Schedule struct {
 
 type FeedingSchedule struct {
 	ID           int
+	AnimalType   string
+	NextFedIndex int
 	LastFedIndex int
+	ScheduleID int
 }

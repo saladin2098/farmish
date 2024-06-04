@@ -1,3 +1,6 @@
+DROP TABLE IF EXISTS water_consumption;
+
+DROP TABLE IF EXISTS provision;
 
 -- Drop the health_conditions table
 DROP TABLE IF EXISTS health_conditions;

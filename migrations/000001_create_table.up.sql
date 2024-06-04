@@ -32,7 +32,6 @@ CREATE TABLE IF NOT EXISTS feeding_schedules (
     schedule_id INT REFERENCES schedules(id)
 );
 
-
 -- Create the medications table
 CREATE TABLE IF NOT EXISTS medications (
     id INT PRIMARY KEY,
@@ -48,4 +47,19 @@ CREATE TABLE IF NOT EXISTS health_conditions (
     is_healthy BOOLEAN,
     condition VARCHAR(255),
     medication VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS provision (
+    id INT PRIMARY KEY,
+    type VARCHAR(225) UNIQUE DEFAULT 'somon',
+    animal_type VARCHAR(450),
+    quantity FLOAT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW(),
+    deleted_at INT DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS water_consumption (
+    id INT PRIMARY KEY,
+    total FLOAT DEFAULT 0
 );

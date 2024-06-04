@@ -29,9 +29,12 @@ func main() {
 
 	ar := managers.NewAnimalRepo(db)
 	hr := managers.NewHealthConditionRepo(db)
+	pr := managers.NewProvisionRepo(db)
+
 	as := service.NewAnimalService(hr, ar)
 	hs := service.NewHealthConditionService(hr)
-	service := service.NewService(*as, *hs)
+	ps := service.NewProvisionService(pr)
+	service := service.NewService(*as, *hs, *ps)
 	h := handlers.NewHTTPHandler(service, *logger)
 	r := api.NewGin(h)
 
@@ -40,3 +43,21 @@ func main() {
 	err = r.Run(config.HTTP_PORT)
 	em.CheckErr(err)
 }
+
+/*
+Azizbek:
+	AnimalGetAll (filter)+gin+swagger+testing
+	Hayvonlar soni
+	O’rtacha vazni(hayvonlar bo’yicha) 
+
+Shamsiddin:
+	o'zini servicelari + gin
+	schedule service + gin
+	feed service + gin
+	++++++++++ swagger
+	++++++++++ testing
+
+
++++READMEEE
++++NOTIFICATION (och qolganlar, )
+*/
