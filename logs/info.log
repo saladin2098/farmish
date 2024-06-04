@@ -12,3 +12,14 @@
 [ERROR]  2024/06/04 11:39:21 checkErr.go:17: pq: relation "feeding_schedules" does not exist
 [ERROR]  2024/06/04 11:45:41 checkErr.go:17: animals are already fed
 [ERROR]  2024/06/04 11:49:09 checkErr.go:17: next schedule is at 14:00. You can start feeding animals from 13:00
+[ERROR]  2024/06/04 17:38:26 checkErr.go:17: next schedule is at 19:00. You can start feeding animals from 18:00
+[ERROR]  2024/06/04 17:41:27 checkErr.go:17: next schedule is at 00:00. You can start feeding animals from 23:00
+[ERROR]  2024/06/04 17:48:28 checkErr.go:17: pq: relation "provisions" does not exist
+[ERROR]  2024/06/04 17:49:07 checkErr.go:17: you cannot feed this provision to that animal
+[ERROR]  2024/06/04 17:49:55 checkErr.go:17: you cannot feed this provision to that animal
+[ERROR]  2024/06/04 17:57:13 checkErr.go:17: pq: column "animal_type" does not exist
+[ERROR]  2024/06/04 18:14:23 checkErr.go:17: pq: column "animal_type" does not exist
+[ERROR]  2024/06/04 18:19:59 checkErr.go:17: sql: expected 1 destination arguments in Scan, not 2
+[ERROR]  2024/06/04 18:20:18 checkErr.go:17: pq: column "animal_type" does not exist
+[ERROR]  2024/06/04 18:21:12 checkErr.go:17: pq: column "animal_type" does not exist
+[ERROR]  2024/06/04 18:28:02 checkErr.go:17: animals are already fed

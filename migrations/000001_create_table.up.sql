@@ -48,3 +48,18 @@ CREATE TABLE IF NOT EXISTS health_conditions (
     medication VARCHAR(255),
     is_treated BOOLEAN
 );
+
+CREATE TABLE IF NOT EXISTS water_consumption (
+    id INT PRIMARY KEY,
+    total FLOAT DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS provision (
+    id INT PRIMARY KEY,
+    type VARCHAR(225) UNIQUE DEFAULT 'hay',
+    animal_type VARCHAR(450) DEFAULT 'Mammals',
+    quantity FLOAT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW(),
+    deleted_at INT DEFAULT 0
+);

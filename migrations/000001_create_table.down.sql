@@ -16,3 +16,6 @@ DROP TABLE IF EXISTS animals;
 -- Drop the feeding_index type
 DROP TYPE IF EXISTS feeding_index;
 
+DROP TABLE IF EXISTS water_consumption;
+
+DROP TABLE IF EXISTS provision;

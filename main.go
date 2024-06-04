@@ -54,21 +54,22 @@ func main() {
 	// schedule := postgresql.NewFeedingScheduleRepo(db)
 	// f := m.FeedingSchedule{
 	// 	ID:        2,
-    //     AnimalType: "horse",
-    //     LastFedIndex: 1,
-    //     NextFedIndex: 2,
-    //     ScheduleID: 90582,
+    //     AnimalType: "tuya",
+    //     LastFedIndex: 2,
+    //     NextFedIndex: 3,
+    //     ScheduleID: 63231,
 	// }
-	// err = schedule.UpdateFeedingSchedule(&f)
+	// fs,err := schedule.CreateFeedingSchedule(&f)
 	// if err!= nil {
     //     em.CheckErr(err)
     // }
 	// fmt.Println(fs)
 
 	feedingREpo := postgresql.NewFeedingRepo(db)
-	err = feedingREpo.FeedAnimals("horse")
+	err = feedingREpo.FeedAnimals("ot","hay")
 	if err!= nil {
         em.CheckErr(err)
     }
+
 	fmt.Println(med)
 }
