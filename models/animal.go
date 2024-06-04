@@ -52,7 +52,17 @@ type AnimalUpdate struct {
 	Medication string
 }
 
+type Schedule struct {
+	ID         int
+	Time1      time.Time
+	Time2      time.Time
+	Time3      time.Time
+}
+
 type FeedingSchedule struct {
 	ID           int
-	LastFedINdex int
+	AnimalType string
+	LastFedIndex int
+	NextFedIndex int
+	ScheduleID   int
 }

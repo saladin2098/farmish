@@ -14,23 +14,21 @@ CREATE TABLE IF NOT EXISTS animals (
     deleted_at INT DEFAULT 0
 );
 
+-- Create the schedules table
+CREATE TABLE IF NOT EXISTS schedules (
+    id INT PRIMARY KEY,
+    time1 TIME,
+    time2 TIME,
+    time3 TIME
+);
+
 -- Create the feeding_schedule table
 CREATE TABLE IF NOT EXISTS feeding_schedule (
     id INT PRIMARY KEY,
     animal_type VARCHAR(255),
     last_fed_index feeding_index,
-    sch1 INT DEFAULT 1,
-    sch2 INT DEFAULT 2,
-    sch3 INT DEFAULT 3
-);
-
--- Create the schedules table
-CREATE TABLE IF NOT EXISTS schedules (
-    id INT PRIMARY KEY,
-    animal_type VARCHAR(255),
-    time1 TIME,
-    time2 TIME,
-    time3 TIME
+    next_fed_index feeding_index,
+    schedule_id INT REFERENCES schedules(id)
 );
 
 -- Create the medications table

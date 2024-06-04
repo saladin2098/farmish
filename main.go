@@ -3,6 +3,8 @@ package main
 import (
 	cf "farmish/config"
 	"farmish/config/logger"
+	// "time"
+
 	// m "farmish/models"
 	"farmish/postgresql"
 	"fmt"
@@ -26,23 +28,26 @@ func main() {
 	repo := postgresql.NewMidacationRepo(db)
 	// med, err := repo.CreateMedication(&m.Medications{
 	// 	ID:        4,
-    //     Name:      "birnima4",
-    //     Type:      "qorasonga",
-    //     Quantity:  10,
+	//     Name:      "birnima4",
+	//     Type:      "qorasonga",
+	//     Quantity:  10,
 	// })
 	// if err!= nil {
-    //     em.CheckErr(err)
-    // }
+	//     em.CheckErr(err)
+	// }
 
 	// med,err := repo.GetMedication(0,"","tablet")
 	// if err != nil {
 	// 	em.CheckErr(err)
 	// }
 
-	med, err := repo.GetMedicationsGroupedByType()
-	if err!= nil {
-        em.CheckErr(err)
-    }
+	med, err := repo.GetMedicationsGroupedByType("tablet")
+	if err != nil {
+		em.CheckErr(err)
+	}
+	// time := time.Now().Hour
+
+	// fmt.Println(time)
 
 	fmt.Println(med)
 }
