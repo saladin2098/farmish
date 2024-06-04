@@ -7,3 +7,4 @@
 [ERROR]  2024/06/03 14:31:54 main.go:38: pq: duplicate key value violates unique constraint "schedules_pkey"
 [ERROR]  2024/06/03 14:36:43 main.go:36: number not generated: the list is full
 [ERROR]  2024/06/03 14:37:52 main.go:36: number not generated: the list is full
+[ERROR]  2024/06/04 10:04:08 main.go:52: pq: column "is_treated" of relation "health_conditions" does not exist

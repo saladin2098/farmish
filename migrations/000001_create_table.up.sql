@@ -47,6 +47,5 @@ CREATE TABLE IF NOT EXISTS health_conditions (
     animal_id INT REFERENCES animals(id),
     is_healthy BOOLEAN,
     condition VARCHAR(255),
-    medication VARCHAR(255),
-    is_treated BOOLEAN
+    medication VARCHAR(255)
 );

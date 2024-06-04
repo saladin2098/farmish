@@ -1,9 +1,10 @@
 package service
 
 type Service struct {
-	// not implemented
+	AR AnimalService
+	HR HealthConditionService
 }
 
-func NewService() *Service {
-	return &Service{}
+func NewService(ar AnimalService, hr HealthConditionService) *Service {
+	return &Service{AR: ar, HR: hr}
 }

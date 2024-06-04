@@ -23,6 +23,8 @@ func main() {
 	defer db.Close()
 
 	// ar := managers.NewAnimalRepo(db)
+
+	// ar.DeleteAnimal(68708)
 	// ids, err := ar.GetAllAnimalIds()
 	// if err != nil {
 	// 	logger.ERROR.Panicln(err)
@@ -31,11 +33,39 @@ func main() {
 	// if err != nil {
 	// 	logger.ERROR.Panicln(err)
 	// }
-
+	// newid2, err := cf.GenNewID(ids)
+	// if err != nil {
+	// 	logger.ERROR.Panicln(err)
+	// }
+	// anim, err := ar.CreateAnimal(&models.AnimalCreate{
+	// 	ID:         int32(newid),
+	// 	Type:       "qush",
+	// 	Birth:      "2025-05-26",
+	// 	Weight:     25,
+	// 	AnimalType: "donxo'r",
+	// 	IsHealthy:  true,
+	// 	Condition:  "aaaa",
+	// 	Medication: "aaa",
+	// }, 1, 2.6, newid2)
+	// if err != nil {
+	// 	logger.ERROR.Panicln(err)
+	// }
+	// fmt.Println(anim)
 	// ar.UpdateAnimal(&models.AnimalUpdate{
 	// 	ID: ,
 	// })
 	// sr := managers.NewScheduleRepo(db)
+
+	// err = ar.UpdateAnimal(&models.AnimalUpdate{
+	// 	ID:         54827,
+	// 	Weight:     15,
+	// 	IsHealthy:  true,
+	// 	Condition:  "ill",
+	// 	Medication: "paratsetamol",
+	// })
+	// if err != nil {
+	// 	panic(err)
+	// }
 
 	// ids, err := sr.GetAllScheduleIds()
 	// if err != nil {
