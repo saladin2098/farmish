@@ -5,6 +5,6 @@ type Service struct {
 	HR HealthConditionService
 }
 
-func NewService(ar AnimalService, hr HealthConditionService) *Service {
-	return &Service{AR: ar, HR: hr}
+func NewService(as AnimalService, hs HealthConditionService) *Service {
+	return &Service{AR: as, HR: hs}
 }

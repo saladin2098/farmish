@@ -11,7 +11,7 @@ func NewHealthConditionRepo(conn *sql.DB) *HealthConditionRepo {
 }
 
 func (hr *HealthConditionRepo) GetAllHealthConditionIds() ([]int, error) {
-	query := "SELECT id FROM health_condition"
+	query := "SELECT id FROM health_conditions"
 	rows, err := hr.Conn.Query(query)
 	if err != nil {
 		return nil, err

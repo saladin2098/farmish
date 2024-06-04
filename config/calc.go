@@ -14,22 +14,28 @@ func CalcFoodForPoultryPerDay(day float64) float64 {
 	return dosage
 }
 
-func CalcWaterPerDay(day float64, weight float64) float64 {
-	baseDosage := 0.05
+func CalcWaterForAnimalsPerDay(day float64, weight float64) float64 {
+	baseDosage := 0.035
 	multiplier := 1 + (day/100)*0.1
 	dosage := baseDosage * multiplier * weight
 	return dosage
 }
 
-func CalcFoodPerDay(day float64, weight float64) float64 {
-	baseDosage := 0.1
+func CalcFoodForAnimalsPerDay(day float64, weight float64) float64 {
+	baseDosage := 0.040
 	multiplier := 1 + (day/200)*0.1
 	dosage := baseDosage * multiplier * weight
 	return dosage
 }
 
+func CalcConsumptionForPoultry(day float64) (float64, float64) {
+	waterConsumption := CalcWaterForPoultryPerDay(day)
+	foodConsumption := CalcFoodForPoultryPerDay(day)
+	return waterConsumption, foodConsumption
+}
+
 func CalcConsumptionForAnimals(day float64, weight float64) (float64, float64) {
-	waterConsumption := CalcWaterPerDay(day, weight)
-	foodConsumption := CalcFoodPerDay(day, weight)
+	waterConsumption := CalcWaterForAnimalsPerDay(day, weight)
+	foodConsumption := CalcFoodForAnimalsPerDay(day, weight)
 	return waterConsumption, foodConsumption
 }

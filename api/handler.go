@@ -9,7 +9,8 @@ import (
 func NewGin(h *handlers.HTTPHandler) *gin.Engine {
 	r := gin.Default()
 
-	
+	animal := r.Group("/animal")
+	animal.POST("/", h.CreateAnimal)
 
 	return r
 }

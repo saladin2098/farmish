@@ -4,12 +4,17 @@ import (
 	"farmish/config"
 	"farmish/models"
 	"farmish/postgresql/managers"
+	"math"
 	"time"
 )
 
 type AnimalService struct {
 	HR *managers.HealthConditionRepo
 	AR *managers.AnimalRepo
+}
+
+func NewAnimalService(hr *managers.HealthConditionRepo, ar *managers.AnimalRepo) *AnimalService {
+	return &AnimalService{HR: hr, AR: ar}
 }
 
 func (s *AnimalService) CreateAnimal(animal *models.AnimalCreate) error {
@@ -34,14 +39,54 @@ func (s *AnimalService) CreateAnimal(animal *models.AnimalCreate) error {
 	if err != nil {
 		return err
 	}
-	birth, err := time.Parse(time.RFC3339, animal.Birth)
+	birth, err := time.Parse("2006-01-02", animal.Birth)
 	if err != nil {
 		return err
 	}
 	duration := time.Since(birth)
 	lived_days := int32(duration.Hours() / 24)
-	consumptionPerDay := config.CalcWaterForPoultryPerDay(float64(lived_days))
-	s.AR.UpdateAvgConsumption(int(newAnimal.ID), consumptionPerDay/3, float64(4))
+
+	if newAnimal.AnimalType == "parranda" {
+		wc, fc := config.CalcConsumptionForPoultry(float64(lived_days))
+		err := s.AR.UpdateAvgConsumption(int(newAnimal.ID), math.Round((wc/3)*1000)/1000, math.Round((fc/3)*1000)/1000)
+		if err != nil {
+			return err
+		}
+	} else if newAnimal.AnimalType == "hayvon" {
+		wc, fc := config.CalcConsumptionForAnimals(float64(lived_days), float64(newAnimal.Weight))
+		err := s.AR.UpdateAvgConsumption(int(newAnimal.ID), math.Round((wc/3)*1000)/1000, math.Round((fc/3)*1000)/1000)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func (s *AnimalService) GetAnimal(id int) (*models.Animal, error) {
+	animal, err := s.AR.GetAnimalByID(id)
+	if err != nil {
+		return nil, err
+	}
+	return animal, nil
+}
+
+func (s *AnimalService) UpdateAnimal(animal *models.AnimalUpdate) error {
+	if animal.IsHealthy {
+		animal.Condition = "Healthy"
+		animal.Medication = "None"
+	}
+	err := s.AR.UpdateAnimal(animal)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (s *AnimalService) DeleteAnimal(id int) error {
+	err := s.AR.DeleteAnimal(id)
+	if err != nil {
+		return err
+	}
 	return nil
 }
 

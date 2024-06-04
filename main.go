@@ -1,9 +1,14 @@
 package main
 
 import (
+	"farmish/api"
+	"farmish/api/handlers"
 	cf "farmish/config"
 	"farmish/config/logger"
 	"farmish/postgresql"
+	"farmish/postgresql/managers"
+	service "farmish/services"
+	"fmt"
 	"path/filepath"
 	"runtime"
 )
@@ -22,80 +27,16 @@ func main() {
 	em.CheckErr(err)
 	defer db.Close()
 
-	// ar := managers.NewAnimalRepo(db)
+	ar := managers.NewAnimalRepo(db)
+	hr := managers.NewHealthConditionRepo(db)
+	as := service.NewAnimalService(hr, ar)
+	hs := service.NewHealthConditionService(hr)
+	service := service.NewService(*as, *hs)
+	h := handlers.NewHTTPHandler(service, *logger)
+	r := api.NewGin(h)
 
-	// ar.DeleteAnimal(68708)
-	// ids, err := ar.GetAllAnimalIds()
-	// if err != nil {
-	// 	logger.ERROR.Panicln(err)
-	// }
-	// newid, err := cf.GenNewID(ids)
-	// if err != nil {
-	// 	logger.ERROR.Panicln(err)
-	// }
-	// newid2, err := cf.GenNewID(ids)
-	// if err != nil {
-	// 	logger.ERROR.Panicln(err)
-	// }
-	// anim, err := ar.CreateAnimal(&models.AnimalCreate{
-	// 	ID:         int32(newid),
-	// 	Type:       "qush",
-	// 	Birth:      "2025-05-26",
-	// 	Weight:     25,
-	// 	AnimalType: "donxo'r",
-	// 	IsHealthy:  true,
-	// 	Condition:  "aaaa",
-	// 	Medication: "aaa",
-	// }, 1, 2.6, newid2)
-	// if err != nil {
-	// 	logger.ERROR.Panicln(err)
-	// }
-	// fmt.Println(anim)
-	// ar.UpdateAnimal(&models.AnimalUpdate{
-	// 	ID: ,
-	// })
-	// sr := managers.NewScheduleRepo(db)
-
-	// err = ar.UpdateAnimal(&models.AnimalUpdate{
-	// 	ID:         54827,
-	// 	Weight:     15,
-	// 	IsHealthy:  true,
-	// 	Condition:  "ill",
-	// 	Medication: "paratsetamol",
-	// })
-	// if err != nil {
-	// 	panic(err)
-	// }
-
-	// ids, err := sr.GetAllScheduleIds()
-	// if err != nil {
-	// 	logger.ERROR.Panicln(err)
-	// }
-	// newid, err := cf.GenNewID(ids)
-	// if err != nil {
-	// 	logger.ERROR.Panicln(err)
-	// }
-	// err = sr.CreateSchedule(&models.Schedule{
-	// 	ID:         newid,
-	// 	AnimalType: "o'rdak",
-	// 	Time1:      time.Time{}.Add(time.Hour * 7),
-	// 	Time2:      time.Time{}.Add(time.Hour * 13),
-	// 	Time3:      time.Time{}.Add(time.Hour * 19),
-	// })
-	// if err != nil {
-	// 	logger.ERROR.Panicln(err)
-	// }
-
-	// schedule := models.Schedule{
-	// 	ID:         1,
-	// 	AnimalType: "qush",
-	// 	Time1:      time.Time{}.Add(time.Hour * 7),
-	// 	Time2:      time.Time{}.Add(time.Hour * 13),
-	// 	Time3:      time.Time{}.Add(time.Hour * 19),
-	// }
-	// feedSchedule := models.FeedingSchedule{
-	// 	ID:           1,
-	// 	LastFedIndex: 1,
-	// }
-	// sr.CreateSchedule(&schedule, &feedSchedule)
+	fmt.Printf("Server started on port %s\n", config.HTTP_PORT)
+	logger.INFO.Println("Server started on port: " + config.HTTP_PORT)
+	err = r.Run(config.HTTP_PORT)
+	em.CheckErr(err)
 }

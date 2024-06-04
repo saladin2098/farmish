@@ -5,6 +5,7 @@ CREATE TYPE feeding_index AS ENUM ('1', '2', '3');
 CREATE TABLE IF NOT EXISTS animals (
     id INT PRIMARY KEY,
     type VARCHAR(255),
+    animal_type VARCHAR(255),
     birth TIMESTAMP,
     weight FLOAT,
     avg_consumption FLOAT,

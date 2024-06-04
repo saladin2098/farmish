@@ -8,3 +8,27 @@
 [ERROR]  2024/06/03 14:36:43 main.go:36: number not generated: the list is full
 [ERROR]  2024/06/03 14:37:52 main.go:36: number not generated: the list is full
 [ERROR]  2024/06/04 10:04:08 main.go:52: pq: column "is_treated" of relation "health_conditions" does not exist
+[INFO]  2024/06/04 14:49:04 main.go:39: Server started on port: 8080
+[ERROR]  2024/06/04 14:49:04 checkErr.go:17: listen tcp: address 8080: missing port in address
+[INFO]  2024/06/04 14:49:33 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 14:57:53 main.go:39: Server started on port: :8080
+[ERROR]  2024/06/04 14:57:58 animal.go:17: Could not create animal: pq: relation "health_condition" does not exist
+[INFO]  2024/06/04 14:59:06 main.go:39: Server started on port: :8080
+[ERROR]  2024/06/04 14:59:06 animal.go:17: Could not create animal: pq: relation "health_condition" does not exist
+[INFO]  2024/06/04 15:03:11 main.go:39: Server started on port: :8080
+[ERROR]  2024/06/04 15:03:14 animal.go:17: Could not create animal: pq: relation "health_condition" does not exist
+[INFO]  2024/06/04 15:06:01 main.go:39: Server started on port: :8080
+[ERROR]  2024/06/04 15:06:03 animal.go:17: Could not create animal: parsing time "2024-01-01" as "2006-01-02T15:04:05Z07:00": cannot parse "" as "T"
+[INFO]  2024/06/04 15:08:26 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:12:27 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:15:14 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:15:43 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:19:44 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:20:22 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:20:34 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:21:05 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:21:22 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:22:01 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:22:20 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:25:16 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:26:32 main.go:39: Server started on port: :8080

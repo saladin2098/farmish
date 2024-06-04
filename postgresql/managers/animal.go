@@ -15,8 +15,8 @@ func NewAnimalRepo(db *sql.DB) *AnimalRepo {
 
 func (m *AnimalRepo) GetAnimalByID(id int) (*models.Animal, error) {
 	query := "SELECT id, type, birth, weight, avg_consumption, avg_water, created_at, updated_at, deleted_at FROM animals WHERE id = $1"
-	row := m.Conn.QueryRow(query, id)
 	animal := models.Animal{}
+	row := m.Conn.QueryRow(query, id)
 	err := row.Scan(
 		&animal.ID, &animal.Type, &animal.Birth,
 		&animal.Weight, &animal.AvgConsumption, &animal.AvgWater,
@@ -69,15 +69,15 @@ func (m *AnimalRepo) CreateAnimal(animal *models.AnimalCreate, avg_water, avg_co
 	}
 	created_animal := models.Animal{}
 	query1 := `
-	INSERT INTO animals (id, type, birth, weight, avg_water, avg_consumption)
-	VALUES ($1, $2, $3, $4, $5, $6) RETURNING *
+	INSERT INTO animals (id, type, animal_type, birth, weight, avg_water, avg_consumption)
+	VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *
 	`
 	err = tx.QueryRow(
-		query1, animal.ID, animal.Type, animal.Birth, animal.Weight,
+		query1, animal.ID, animal.Type, animal.AnimalType, animal.Birth, animal.Weight,
 		avg_water, avg_consumtion,
 	).Scan(
-		&created_animal.ID, &created_animal.Type, &created_animal.Birth,
-		&created_animal.Weight, &created_animal.AvgWater, &created_animal.AvgConsumption,
+		&created_animal.ID, &created_animal.Type, &created_animal.AnimalType,
+		&created_animal.Birth, &created_animal.Weight, &created_animal.AvgWater, &created_animal.AvgConsumption,
 		&created_animal.CreatedAt, &created_animal.UpdatedAt, &created_animal.DeletedAt,
 	)
 	if err != nil {
@@ -108,27 +108,19 @@ func (m *AnimalRepo) CreateAnimal(animal *models.AnimalCreate, avg_water, avg_co
 func (m *AnimalRepo) UpdateAnimal(animal *models.AnimalUpdate) error {
 	tx, err := m.Conn.Begin()
 	if err != nil {
-		tx.Rollback()
 		return err
 	}
 	query1 := "UPDATE animals SET weight = $1 WHERE id = $2"
-	_, err = tx.Exec(query1, animal.Weight, animal.ID)
-	if err != nil {
+	if _, err := tx.Exec(query1, animal.Weight, animal.ID); err != nil {
 		tx.Rollback()
 		return err
-	}
-	if animal.IsHealthy {
-		animal.Condition = "Healthy"
-		animal.Medication = "None"
 	}
 	query2 := "UPDATE health_conditions SET is_healthy = $1, condition = $2, medication = $3 WHERE animal_id = $4"
-	_, err = tx.Exec(query2, animal.IsHealthy, animal.Condition, animal.Medication, animal.ID)
-	if err != nil {
+	if _, err := tx.Exec(query2, animal.IsHealthy, animal.Condition, animal.Medication, animal.ID); err != nil {
 		tx.Rollback()
 		return err
 	}
-	err = tx.Commit()
-	if err != nil {
+	if err := tx.Commit(); err != nil {
 		tx.Rollback()
 		return err
 	}
@@ -147,21 +139,17 @@ func (m *AnimalRepo) UpdateAvgConsumption(id int, water, meal float64) error {
 func (m *AnimalRepo) DeleteAnimal(id int) error {
 	tx, err := m.Conn.Begin()
 	if err != nil {
-		tx.Rollback()
 		return err
 	}
 	query1 := "UPDATE animals SET deleted_at = EXTRACT(EPOCH FROM NOW()) WHERE id = $1"
-	_, err = m.Conn.Exec(query1, id)
-	if err != nil {
+	if _, err := m.Conn.Exec(query1, id); err != nil {
 		return err
 	}
 	query2 := "DELETE FROM health_conditions WHERE animal_id = $1"
-	_, err = m.Conn.Exec(query2, id)
-	if err != nil {
+	if _, err = m.Conn.Exec(query2, id); err != nil {
 		return err
 	}
-	err = tx.Commit()
-	if err != nil {
+	if err := tx.Commit(); err != nil {
 		return err
 	}
 	return nil
