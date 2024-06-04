@@ -4,3 +4,11 @@
 [ERROR]  2024/06/03 15:13:47 checkErr.go:17: pq: duplicate key value violates unique constraint "medications_pkey"
 [ERROR]  2024/06/03 15:16:46 checkErr.go:17: error scanning row: sql: Scan error on column index 2, name "medications": unsupported Scan, storing driver.Value type []uint8 into type *[]models.Medications
 [ERROR]  2024/06/03 15:28:44 checkErr.go:17: error scanning row: sql: Scan error on column index 2, name "medications": unsupported Scan, storing driver.Value type []uint8 into type *[]models.Medications
+[ERROR]  2024/06/04 11:15:28 checkErr.go:17: pq: relation "feeding_schedules" does not exist
+[ERROR]  2024/06/04 11:19:29 checkErr.go:17: pq: syntax error at end of input
+[ERROR]  2024/06/04 11:21:29 checkErr.go:17: pq: relation "feeding_schedules" does not exist
+[ERROR]  2024/06/04 11:21:49 checkErr.go:17: pq: relation "schedule" does not exist
+[ERROR]  2024/06/04 11:22:12 checkErr.go:17: next schedule is at 13:00. You can start feeding animals from 12:00
+[ERROR]  2024/06/04 11:39:21 checkErr.go:17: pq: relation "feeding_schedules" does not exist
+[ERROR]  2024/06/04 11:45:41 checkErr.go:17: animals are already fed
+[ERROR]  2024/06/04 11:49:09 checkErr.go:17: next schedule is at 14:00. You can start feeding animals from 13:00

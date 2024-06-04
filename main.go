@@ -5,6 +5,8 @@ import (
 	"farmish/config/logger"
 	// "time"
 
+	// "time"
+
 	// m "farmish/models"
 	"farmish/postgresql"
 	"fmt"
@@ -49,5 +51,24 @@ func main() {
 
 	// fmt.Println(time)
 
+	// schedule := postgresql.NewFeedingScheduleRepo(db)
+	// f := m.FeedingSchedule{
+	// 	ID:        2,
+    //     AnimalType: "horse",
+    //     LastFedIndex: 1,
+    //     NextFedIndex: 2,
+    //     ScheduleID: 90582,
+	// }
+	// err = schedule.UpdateFeedingSchedule(&f)
+	// if err!= nil {
+    //     em.CheckErr(err)
+    // }
+	// fmt.Println(fs)
+
+	feedingREpo := postgresql.NewFeedingRepo(db)
+	err = feedingREpo.FeedAnimals("horse")
+	if err!= nil {
+        em.CheckErr(err)
+    }
 	fmt.Println(med)
 }
