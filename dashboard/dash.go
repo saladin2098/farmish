@@ -66,3 +66,16 @@ func (d *Dashboard) GetHungryAnimals() (*models.AnimalsGetAll, error) {
 	result.Count = animals.Count
 	return &result, nil
 }
+
+func (d *Dashboard) CheckProvision() (bool, bool, error) {
+	pr_anim, err := d.Service.PS.ProvisionData("hayvon")
+	if err != nil {
+		return false, false, err
+	}
+	pr_poul, err := d.Service.PS.ProvisionData("parranda")
+	if err != nil {
+		return false, false, err
+	}
+
+	return pr_anim, pr_poul, nil
+}

@@ -1,6 +1,7 @@
 package api
 
 import (
+	_ "farmish/api/docs"
 	"farmish/api/handlers"
 
 	swaggerFiles "github.com/swaggo/files"
@@ -20,8 +21,8 @@ func NewGin(h *handlers.HTTPHandler) *gin.Engine {
 
 	provision := r.Group("/provision")
 	provision.POST("/", h.CreateProvision)
-	provision.GET("/:id/:type/:animal_type/:quantity", h.GetProvision)
-	provision.GET("/", h.GetAllProviison)
+	provision.GET("/", h.GetProvision)
+	provision.GET("/get", h.GetAllProviison)
 	provision.PUT("/:id", h.UpdateProvision)
 	provision.DELETE("/:id", h.DeleteProvision)
 

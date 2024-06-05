@@ -4,6 +4,7 @@ import (
 	"farmish/config"
 	"farmish/models"
 	"farmish/postgresql/managers"
+	"fmt"
 )
 
 type ProvisionService struct {
@@ -17,6 +18,7 @@ func NewProvisionService(pr *managers.ProvisionRepo) *ProvisionService {
 func (p *ProvisionService) CreateProvision(prs *models.BodyProvision) (*models.CreateProvision, error) {
 
 	ids, err := p.PR.GetAllIds()
+	fmt.Println(ids)
 	if err != nil {
 		return nil, err
 	}
@@ -25,14 +27,8 @@ func (p *ProvisionService) CreateProvision(prs *models.BodyProvision) (*models.C
 	if err != nil {
 		return nil, err
 	}
-	createdProvision := &models.CreateProvision{
-		ID:         id,
-		Type:       prs.Type,
-		AnimalType: prs.AnimalType,
-		Quantity:   prs.Quantity,
-	}
 
-	createdProvision, err = p.PR.CreateProvision(*createdProvision)
+	createdProvision, err := p.PR.CreateProvision(*prs, id)
 	if err != nil {
 		return nil, err
 	}
@@ -52,15 +48,13 @@ func (p *ProvisionService) GetAllProvision(filter models.Filter) (*models.GetAll
 	return provisions, err
 }
 
-func (p *ProvisionService) UpdateProvision(prs *models.UpdateProvision) (*models.UpdateProvision, error) {
-	oldPrs, err := p.PR.GetProvision(prs.ID, "", "", 0)
+func (p *ProvisionService) UpdateProvision(prs *models.UpdateProvision, id int) (*models.UpdateProvision, error) {
+	oldPrs, err := p.PR.GetProvision(id, "", "", 0)
 	if err != nil {
 		return nil, err
 	}
 
-	var updatePrs = models.UpdateProvision{
-		ID: oldPrs.ID,
-	}
+	var updatePrs = models.UpdateProvision{}
 
 	if prs.Type == "" {
 		updatePrs.Type = oldPrs.Type
@@ -73,7 +67,7 @@ func (p *ProvisionService) UpdateProvision(prs *models.UpdateProvision) (*models
 		updatePrs.Quantity = prs.Quantity
 	}
 
-	err = p.PR.UpdateProvision(&updatePrs)
+	err = p.PR.UpdateProvision(&updatePrs, id)
 
 	return &updatePrs, err
 }
@@ -82,4 +76,10 @@ func (p *ProvisionService) DeleteProvision(id int) error {
 	err := p.PR.DeleteProvision(id)
 
 	return err
+}
+
+func (p *ProvisionService) ProvisionData(animal_type string) (bool, error) {
+	b, err := p.PR.ProvisionData(animal_type)
+
+	return b, err
 }

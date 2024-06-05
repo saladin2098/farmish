@@ -1,19 +1,12 @@
 package handlers
 
 import (
-	"database/sql"
 	"farmish/models"
-	"farmish/postgresql/managers"
-	service "farmish/services"
 	"fmt"
 	"net/http"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-)
-
-var (
-	db *sql.DB
 )
 
 // CreateProvision godoc
@@ -35,14 +28,16 @@ func (h *HTTPHandler) CreateProvision(c *gin.Context) {
 		return
 	}
 
-	var provisionService = service.ProvisionService{PR: &managers.ProvisionRepo{}}
-	createdProvision, err := provisionService.CreateProvision(&body)
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+	if err, _ := h.Service.PS.CreateProvision(&body); err != nil {
+		h.Logger.ERROR.Printf("Failed to create provision: %v", err)
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Failed to create provision",
+		})
 		return
 	}
 
-	c.JSON(http.StatusCreated, gin.H{"provision": createdProvision})
+	h.Logger.INFO.Printf("Created provision: %s", body)
+	c.JSON(http.StatusCreated, "Provision successfully")
 }
 
 // GetProvisionById godoc
@@ -58,25 +53,34 @@ func (h *HTTPHandler) CreateProvision(c *gin.Context) {
 // @Response 400 {object} string "Bad Request"
 // @Failure 500 {object} string "Server Error"
 func (h *HTTPHandler) GetProvision(c *gin.Context) {
-	idPr := c.Param("id")
-	typ := c.Param("type")
-	animal_type := c.Param("animal_type")
-	quantityPr := c.Param("quantity")
+	idPr := c.Query("id")
+	typ := c.Query("type")
+	animal_type := c.Query("animal_type")
+	quantityPr := c.Query("quantity")
 
-	id, err := strconv.Atoi(idPr)
-	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": fmt.Sprintf("Invalid value for 'id' parameter : %v", err)})
-		return
+	var id int
+	var quantity float64
+	var err error
+
+	if idPr != "" {
+		id, err = strconv.Atoi(idPr)
+		if err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": fmt.Sprintf("Invalid value for 'id' parameter : %v", err)})
+			return
+		}
 	}
 
-	quantity, err := strconv.ParseFloat(quantityPr, 64)
-	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": fmt.Sprintf("Invalid value for 'quantity' parameter : %v", err)})
-		return
+	if quantityPr != "" {
+		quantity, err = strconv.ParseFloat(quantityPr, 64)
+		if err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": fmt.Sprintf("Invalid value for 'quantity' parameter : %v", err)})
+			return
+		}
 	}
 
 	prs, err := h.Service.PS.GetProvision(id, typ, animal_type, quantity)
 	if err != nil {
+		h.Logger.ERROR.Printf("Failed to get provision: %v", err)
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
@@ -123,18 +127,33 @@ func (h *HTTPHandler) GetAllProviison(c *gin.Context) {
 // @Response 400 {object} string "Bad Request"
 // @Failure 500 {object} string "Server Error"
 func (h *HTTPHandler) UpdateProvision(c *gin.Context) {
+	idPr := c.Param("id")
+	var id int
+	var err error
+
+	if idPr != "" {
+		id, err = strconv.Atoi(idPr)
+		if err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": fmt.Sprintf("Invalid value for 'id' parameter : %v", err)})
+			return
+		}
+	}
+
 	var body models.UpdateProvision
 	if err := c.ShouldBindJSON(&body); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	provisions, err := h.Service.PS.UpdateProvision(&body)
+	provisions, err := h.Service.PS.UpdateProvision(&body, id)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"provisions": provisions})
+	c.JSON(http.StatusOK, gin.H{
+		"message":    "Provision successfully!",
+		"provisions": provisions,
+	})
 }
 
 // DeleteProvision godoc
@@ -164,5 +183,5 @@ func (h *HTTPHandler) DeleteProvision(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusNoContent, "")
+	c.JSON(http.StatusOK, gin.H{"message": "Provision successfully deleted!"})
 }

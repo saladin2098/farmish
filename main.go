@@ -40,35 +40,14 @@ func main() {
 	r := api.NewGin(h)
 
 	dash := dashboard.NewDashboard(*service)
-	fmt.Println(111)
-	// fmt.Println(dash.GetAnimalsCount())
-	// fmt.Println(dash.GetAvgWeight())
-	fmt.Println(dash.GetHungryAnimals())
-	// fmt.Println(dash.GetSickAnimals())
+	notif := dashboard.NewNotification(*logger, *dash)
 
-	notif := dashboard.NewNotification(*logger, *service)
-	notif.SendNotifAboutHungryAnimals()
+	fmt.Println(1111)
+	go notif.SendNotifAboutHungryAnimals()
+	go notif.SendNotifAboutSickAnimals()
 
 	fmt.Printf("Server started on port %s\n", config.HTTP_PORT)
 	logger.INFO.Println("Server started on port: " + config.HTTP_PORT)
 	err = r.Run(config.HTTP_PORT)
 	em.CheckErr(err)
 }
-
-/*
-Azizbek:
-	AnimalGetAll (filter)+gin+swagger+testing
-	Hayvonlar soni
-	O’rtacha vazni(hayvonlar bo’yicha)
-
-Shamsiddin:
-	o'zini servicelari + gin
-	schedule service + gin
-	feed service + gin
-	++++++++++ swagger
-	++++++++++ testing
-
-
-+++READMEEE
-+++NOTIFICATION (och qolganlar, )
-*/

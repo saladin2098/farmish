@@ -2,8 +2,6 @@ package dashboard
 
 import (
 	"farmish/config/logger"
-	"farmish/models"
-	service "farmish/services"
 	"time"
 
 	"github.com/go-co-op/gocron"
@@ -12,30 +10,72 @@ import (
 type Notification struct {
 	Logger    logger.Logger
 	Scheduler *gocron.Scheduler
-	Service   service.Service
+	Dashboard Dashboard
 }
 
-func NewNotification(logger logger.Logger, service service.Service) *Notification {
-	return &Notification{Logger: logger, Scheduler: gocron.NewScheduler(time.UTC), Service: service}
+func NewNotification(logger logger.Logger, dashboard Dashboard) *Notification {
+	return &Notification{Logger: logger, Scheduler: gocron.NewScheduler(time.UTC), Dashboard: dashboard}
 }
 
 func (n *Notification) SendNotifAboutHungryAnimals() {
-	dash := NewDashboard(n.Service)
-	animals, err := dash.GetHungryAnimals()
+	n.Scheduler.Every(1).Second().Do(func() {
+		err := n.warnHungryAnimals()
+		if err != nil {
+			n.Logger.ERROR.Println(err)
+		}
+	})
+	n.Scheduler.StartAsync()
+}
+
+func (n *Notification) SendNotifAboutSickAnimals() {
+	n.Scheduler.Every(1).Second().Do(func() {
+		err := n.warnSickAnimals()
+		if err != nil {
+			n.Logger.ERROR.Println(err)
+		}
+	})
+	n.Scheduler.StartAsync()
+}
+
+func (n *Notification) warnHungryAnimals() error {
+	animals, err := n.Dashboard.GetHungryAnimals()
 	if err != nil {
-		return
+		return err
 	}
 	if animals.Count > 0 {
-		n.Scheduler.Every(1).Seconds().Do(n.warnHungryAnimals, animals)
-		n.Scheduler.StartAsync()
-		select {}
+		n.Logger.WARN.Printf("%d ta hayvonlar och qoldi!!!", animals.Count)
 	}
+	return nil
 }
 
-func (n *Notification) warnHungryAnimals(animals *models.AnimalsGetAll) {
-	n.Logger.WARN.Printf("%d ta hayvonlar och qoldi", animals.Count)
+func (n *Notification) warnSickAnimals() error {
+	animals, err := n.Dashboard.GetSickAnimals()
+	if err != nil {
+		return err
+	}
+	if animals.Count > 0 {
+		n.Logger.WARN.Printf("%d ta hayvonlar kasal!!!", animals.Count)
+	}
+	return nil
 }
 
-func (n Notification) warnSickAnimals(animals *models.AnimalsGetAll) {
-	n.Logger.WARN.Printf("")
-}
+// func (n *Notification) SendNotifAboutProvision() {
+// 	n.Scheduler.Every(1).Second().Do(func() {
+// 		err := n.warnProvision()
+// 		if err != nil {
+// 			n.Logger.ERROR.Println(err)
+// 		}
+// 	})
+// 	n.Scheduler.StartAsync()
+// }
+
+// func (n *Notification) warnProvision() error {
+// 	animals, err := n.Dashboard.()
+// 	if err != nil {
+// 		return err
+// 	}
+// 	if animals.Count > 0 {
+// 		n.Logger.WARN.Printf("%d ta hayvonlar kasal!!!", animals.Count)
+// 	}
+// 	return nil
+// }

@@ -20,6 +20,9 @@ gen-proto:
 		--go-grpc_out=services/ \
 		services/protos/*.proto
 
+swag:
+	swag init -g api/handler.go -o api/docs
+
 # mig-delete:
 # 	rm -r db/migrations
 # \

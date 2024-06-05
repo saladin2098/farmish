@@ -3,24 +3,27 @@ package managers
 import (
 	"database/sql"
 	"farmish/models"
+	"fmt"
 	"strconv"
 	"strings"
 	"time"
 )
 
 type ProvisionRepo struct {
-	db *sql.DB
+	Conn *sql.DB
 }
 
 func NewProvisionRepo(db *sql.DB) *ProvisionRepo {
-	return &ProvisionRepo{db}
+	return &ProvisionRepo{Conn: db}
 }
 
 func (p *ProvisionRepo) GetAllIds() ([]int, error) {
 	var ids []int
 
 	query := "SELECT id FROM provision"
-	rows, err := p.db.Query(query)
+	fmt.Println(p)
+	fmt.Println(p.Conn)
+	rows, err := p.Conn.Query(query)
 	if err != nil {
 		return nil, err
 	}
@@ -42,20 +45,20 @@ func (p *ProvisionRepo) GetAllIds() ([]int, error) {
 	return ids, nil
 }
 
-func (p *ProvisionRepo) CreateProvision(provision models.CreateProvision) (*models.CreateProvision, error) {
+func (p *ProvisionRepo) CreateProvision(provision models.BodyProvision, id int) (*models.CreateProvision, error) {
 
 	query := "insert into provision (id, type, animal_type, quantity) values ($1, $2, $3, $4) returning *"
-	_, err := p.db.Exec(query, provision.ID, provision.Type, provision.AnimalType, provision.Quantity)
+	_, err := p.Conn.Exec(query, id, provision.Type, provision.AnimalType, provision.Quantity)
 	if err != nil {
 		return nil, err
 	}
-
+	var cProvision models.CreateProvision
 	var createdPrv models.CreateProvision
-	err = p.db.QueryRow(query,
-		provision.ID,
-		provision.Type,
-		provision.AnimalType,
-		provision.Quantity).Scan(
+	err = p.Conn.QueryRow(query,
+		cProvision.ID,
+		cProvision.Type,
+		cProvision.AnimalType,
+		cProvision.Quantity).Scan(
 		&createdPrv.ID,
 		&createdPrv.Type,
 		&createdPrv.AnimalType,
@@ -71,8 +74,15 @@ func (p *ProvisionRepo) CreateProvision(provision models.CreateProvision) (*mode
 func (p *ProvisionRepo) GetAllProvision(filter models.Filter) (*models.GetAllProvisions, error) {
 	var provisions []models.GetProvision
 
+	var limit int
+
+	p.Conn.QueryRow("select count(1) from provision").Scan(&limit)
+
+	if filter.Limit == 0 {
+		filter.Limit = limit
+	}
 	query := "select id, type, quantity from provision LIMIT $1 OFFSET $2"
-	rows, err := p.db.Query(query, filter.Limit, filter.OFFSET)
+	rows, err := p.Conn.Query(query, filter.Limit, filter.OFFSET)
 	if err != nil {
 		return nil, err
 	}
@@ -125,7 +135,7 @@ func (p *ProvisionRepo) GetProvision(id int, typ, animal_type string, quantity f
 	}
 
 	var provision models.GetProvision
-	err := p.db.QueryRow(query, args...).
+	err := p.Conn.QueryRow(query, args...).
 		Scan(
 			&provision.ID,
 			&provision.Type,
@@ -135,10 +145,10 @@ func (p *ProvisionRepo) GetProvision(id int, typ, animal_type string, quantity f
 	return &provision, err
 }
 
-func (p *ProvisionRepo) UpdateProvision(provision *models.UpdateProvision) error {
+func (p *ProvisionRepo) UpdateProvision(provision *models.UpdateProvision, id int) error {
 	query := "update provision set type = $1, quantity = $2,  updated_at=now() where id = $3"
 
-	_, err := p.db.Exec(query, provision.Type, provision.Quantity, provision.ID)
+	_, err := p.Conn.Exec(query, provision.Type, provision.Quantity, id)
 
 	return err
 }
@@ -148,7 +158,22 @@ func (p *ProvisionRepo) DeleteProvision(id int) error {
 
 	query := "update provision set deleted_at=$1 where id = $2"
 
-	_, err := p.db.Exec(query, now, id)
+	_, err := p.Conn.Exec(query, now, id)
 
 	return err
+}
+
+func (p *ProvisionRepo) ProvisionData(animal_type string) (bool, error) {
+	var provision models.Provision
+	var quantity float64
+	query := "select sum(avg_consumption) from animals where animal_type = $1"
+
+	err := p.Conn.QueryRow(query, animal_type).Scan(
+		&quantity,
+	)
+
+	if quantity*18 > provision.Quantity {
+		return false, err
+	}
+	return true, err
 }
