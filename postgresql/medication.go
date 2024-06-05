@@ -17,23 +17,49 @@ func NewMidacationRepo(db *sql.DB) *MedicationRepo {
 }
 
 func (r *MedicationRepo) CreateMedication(med *m.Medications) (*m.Medications, error) {
-	query := `insert into medications(id, name, type, quantity) values ($1, $2, $3, $4) returning id, name, type, quantity`
+	var existingMed m.Medications
 
-	var createdMed m.Medications
-	err := r.DB.QueryRow(query,
-		med.ID,
-		med.Name,
-		med.Type,
-		med.Quantity).Scan(
-		&createdMed.ID,
-		&createdMed.Name,
-		&createdMed.Type,
-		&createdMed.Quantity)
-	if err != nil {
+	// Check if a medication with the same name and type exists
+	checkQuery := `SELECT id, name, type, quantity FROM medications WHERE name = $1 AND type = $2`
+	err := r.DB.QueryRow(checkQuery, med.Name, med.Type).Scan(
+		&existingMed.ID,
+		&existingMed.Name,
+		&existingMed.Type,
+		&existingMed.Quantity)
+	if err != nil && err != sql.ErrNoRows {
 		return nil, err
 	}
 
-	return &createdMed, nil
+	if err == sql.ErrNoRows {
+		// Medication does not exist, insert new medication
+		insertQuery := `INSERT INTO medications(name, type, quantity) VALUES ($1, $2, $3) RETURNING id, name, type, quantity`
+		err = r.DB.QueryRow(insertQuery,
+			med.Name,
+			med.Type,
+			med.Quantity).Scan(
+			&existingMed.ID,
+			&existingMed.Name,
+			&existingMed.Type,
+			&existingMed.Quantity)
+		if err != nil {
+			return nil, err
+		}
+	} else {
+		// Medication exists, update the quantity
+		updateQuery := `UPDATE medications SET quantity = quantity + $1 WHERE id = $2 RETURNING id, name, type, quantity`
+		err = r.DB.QueryRow(updateQuery,
+			med.Quantity,
+			existingMed.ID).Scan(
+			&existingMed.ID,
+			&existingMed.Name,
+			&existingMed.Type,
+			&existingMed.Quantity)
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	return &existingMed, nil
 }
 func (r *MedicationRepo) GetMedication(id int, name, turi string) (*m.Medications, error) {
 	baseQuery := `select id, name, type, quantity from medications where `
@@ -128,4 +154,24 @@ func (r *MedicationRepo) GetMedicationsGroupedByType(tur string) (*m.Medicariona
 	res := m.MedicarionaGrouped{Medications: result}
 
 	return &res, nil
+}
+func (r *MedicationRepo) GetAllMedicationIDs() (*[]int,error) {
+	var ids []int
+    query := `select id from medications`
+    rows,err := r.DB.Query(query)
+    if err!= nil {
+        return nil,err
+    }
+    defer rows.Close()
+    for rows.Next() {
+        var id int
+        if err := rows.Scan(&id); err!= nil {
+            return nil,err
+        }
+        ids = append(ids, id)
+    }
+    if err := rows.Err(); err!= nil {
+        return nil,err
+    }
+    return &ids,nil
 }

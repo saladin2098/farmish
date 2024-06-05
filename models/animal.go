@@ -53,16 +53,29 @@ type AnimalUpdate struct {
 }
 
 type Schedule struct {
-	ID         int
-	Time1      time.Time
-	Time2      time.Time
-	Time3      time.Time
+	ID    int
+	Time1 time.Time
+	Time2 time.Time
+	Time3 time.Time
+}
+
+type ScheduleCreate struct {
+	Time1 string
+	Time2 string
+	Time3 string
 }
 
 type FeedingSchedule struct {
 	ID           int
-	AnimalType string
+	AnimalType   string
 	LastFedIndex int
 	NextFedIndex int
+	ScheduleID   int
+}
+
+type FeedingScheduleCreate struct {
+	AnimalType   string
+	LastFedIndex string
+	NextFedIndex string
 	ScheduleID   int
 }

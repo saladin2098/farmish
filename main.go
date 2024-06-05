@@ -1,12 +1,11 @@
 package main
 
 import (
+	"farmish/api"
+	"farmish/api/handlers"
 	cf "farmish/config"
 	"farmish/config/logger"
-	// "time"
-
-	// "time"
-
+	service "farmish/services"
 	// m "farmish/models"
 	"farmish/postgresql"
 	"fmt"
@@ -26,8 +25,9 @@ func main() {
 
 	db, err := postgresql.ConnectDB(config)
 	em.CheckErr(err)
-	defer db.Close()
-	repo := postgresql.NewMidacationRepo(db)
+
+	// defer db.Close()
+	// repo := postgresql.NewMidacationRepo(db)
 	// med, err := repo.CreateMedication(&m.Medications{
 	// 	ID:        4,
 	//     Name:      "birnima4",
@@ -43,10 +43,10 @@ func main() {
 	// 	em.CheckErr(err)
 	// }
 
-	med, err := repo.GetMedicationsGroupedByType("tablet")
-	if err != nil {
-		em.CheckErr(err)
-	}
+	// med, err := repo.GetMedicationsGroupedByType("tablet")
+	// if err != nil {
+	// 	em.CheckErr(err)
+	// }
 	// time := time.Now().Hour
 
 	// fmt.Println(time)
@@ -65,11 +65,29 @@ func main() {
     // }
 	// fmt.Println(fs)
 
-	feedingREpo := postgresql.NewFeedingRepo(db)
-	err = feedingREpo.FeedAnimals("ot","hay")
-	if err!= nil {
-        em.CheckErr(err)
-    }
+	// feedingREpo := postgresql.NewFeedingRepo(db)
+	// err = feedingREpo.FeedAnimals("ot","hay")
+	// if err!= nil {
+    //     em.CheckErr(err)
+    // }
 
-	fmt.Println(med)
+	// fmt.Println(med)
+		
+	fs := service.NewFeedingService(postgresql.NewFeedingRepo(db))
+	fss := service.NewFeedingScheduleService(postgresql.NewFeedingScheduleRepo(db))
+	ms := service.NewMedicationService(postgresql.NewMidacationRepo(db))
+    ss := service.NewSheduleService(postgresql.NewScheduleRepo(db))
+
+	service := service.NewService(*fs,*ms,*ss,*fss)
+	h := handlers.NewHTTPHandler(service, *logger)
+	r := api.NewGin(h)
+
+	fmt.Printf("Server started on port %s\n", config.HTTP_PORT)
+	logger.INFO.Println("Server started on port: " + config.HTTP_PORT)
+	err = r.Run(config.HTTP_PORT)
+	em.CheckErr(err)
+
+
+
+
 }
