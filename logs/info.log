@@ -1,0 +1,1002 @@
+[ERROR]  2024/06/03 13:03:12 main.go:40: pq: column "avg_consumtion" of relation "animals" does not exist
+[ERROR]  2024/06/03 13:03:22 main.go:40: pq: column "is_healthy" of relation "animals" does not exist
+[ERROR]  2024/06/03 13:04:30 main.go:40: pq: got 9 parameters but the statement requires 6
+[ERROR]  2024/06/03 13:12:14 main.go:40: pq: duplicate key value violates unique constraint "animals_pkey"
+[ERROR]  2024/06/03 13:14:59 main.go:40: pq: duplicate key value violates unique constraint "animals_pkey"
+[ERROR]  2024/06/03 13:15:17 main.go:40: pq: INSERT has more target columns than expressions
+[ERROR]  2024/06/03 14:31:54 main.go:38: pq: duplicate key value violates unique constraint "schedules_pkey"
+[ERROR]  2024/06/03 14:36:43 main.go:36: number not generated: the list is full
+[ERROR]  2024/06/03 14:37:52 main.go:36: number not generated: the list is full
+[ERROR]  2024/06/04 10:04:08 main.go:52: pq: column "is_treated" of relation "health_conditions" does not exist
+[INFO]  2024/06/04 14:49:04 main.go:39: Server started on port: 8080
+[ERROR]  2024/06/04 14:49:04 checkErr.go:17: listen tcp: address 8080: missing port in address
+[INFO]  2024/06/04 14:49:33 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 14:57:53 main.go:39: Server started on port: :8080
+[ERROR]  2024/06/04 14:57:58 animal.go:17: Could not create animal: pq: relation "health_condition" does not exist
+[INFO]  2024/06/04 14:59:06 main.go:39: Server started on port: :8080
+[ERROR]  2024/06/04 14:59:06 animal.go:17: Could not create animal: pq: relation "health_condition" does not exist
+[INFO]  2024/06/04 15:03:11 main.go:39: Server started on port: :8080
+[ERROR]  2024/06/04 15:03:14 animal.go:17: Could not create animal: pq: relation "health_condition" does not exist
+[INFO]  2024/06/04 15:06:01 main.go:39: Server started on port: :8080
+[ERROR]  2024/06/04 15:06:03 animal.go:17: Could not create animal: parsing time "2024-01-01" as "2006-01-02T15:04:05Z07:00": cannot parse "" as "T"
+[INFO]  2024/06/04 15:08:26 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:12:27 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:15:14 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:15:43 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:19:44 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:20:22 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:20:34 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:21:05 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:21:22 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:22:01 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:22:20 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:25:16 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 15:26:32 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 19:05:01 main.go:41: Server started on port: :8080
+[INFO]  2024/06/04 19:40:32 main.go:39: Server started on port: :8080
+[INFO]  2024/06/04 19:40:47 animal.go:22: Animal created: {ID:80336 Type:sheep Birth:2024-01-01 Weight:5 AnimalType:parranda IsHealthy:true Condition:Healthy Medication:None}
+[INFO]  2024/06/05 01:02:25 main.go:42: Server started on port: :8080
+[INFO]  2024/06/05 01:03:05 main.go:42: Server started on port: :8080
+[INFO]  2024/06/05 01:10:54 main.go:42: Server started on port: :8080
+[ERROR]  2024/06/05 01:11:05 animal.go:50: Could not get all animals: sql: expected 10 destination arguments in Scan, not 9
+[INFO]  2024/06/05 01:11:31 main.go:42: Server started on port: :8080
+[ERROR]  2024/06/05 01:11:50 animal.go:50: Could not get all animals: pq: operator does not exist: feeding_index = integer
+[INFO]  2024/06/05 01:12:13 main.go:42: Server started on port: :8080
+[ERROR]  2024/06/05 01:12:15 animal.go:50: Could not get all animals: pq: operator does not exist: time without time zone > timestamp with time zone
+[INFO]  2024/06/05 01:12:52 main.go:42: Server started on port: :8080
+[INFO]  2024/06/05 01:13:40 main.go:42: Server started on port: :8080
+[INFO]  2024/06/05 01:13:51 main.go:42: Server started on port: :8080
+[INFO]  2024/06/05 01:14:13 main.go:42: Server started on port: :8080
+[INFO]  2024/06/05 01:15:06 main.go:42: Server started on port: :8080
+[INFO]  2024/06/05 01:15:49 main.go:42: Server started on port: :8080
+[INFO]  2024/06/05 01:16:34 animal.go:22: Animal created: {ID:39604 Type:tovuq Birth:2024-01-01 Weight:5 AnimalType:parranda IsHealthy:true Condition:Healthy Medication:None}
+[INFO]  2024/06/05 01:18:02 main.go:42: Server started on port: :8080
+[ERROR]  2024/06/05 01:18:04 animal.go:50: Could not get all animals: pq: column a.animl_type does not exist
+[INFO]  2024/06/05 01:18:12 main.go:42: Server started on port: :8080
+[INFO]  2024/06/05 01:18:33 animal.go:22: Animal created: {ID:59907 Type:mol Birth:2024-01-01 Weight:100 AnimalType:hayvon IsHealthy:true Condition:Healthy Medication:None}
+[INFO]  2024/06/05 01:19:07 main.go:42: Server started on port: :8080
+[INFO]  2024/06/05 01:19:35 animal.go:22: Animal created: {ID:50698 Type:mol Birth:2024-01-01 Weight:100 AnimalType:hayvon IsHealthy:false Condition:blablabla Medication:nowayyy}
+[ERROR]  2024/06/05 01:20:01 animal.go:50: Could not get all animals: pq: missing FROM-clause entry for table "hc"
+[ERROR]  2024/06/05 01:20:48 animal.go:50: Could not get all animals: pq: missing FROM-clause entry for table "hc"
+[INFO]  2024/06/05 01:23:17 main.go:42: Server started on port: :8080
+[ERROR]  2024/06/05 01:23:19 animal.go:50: Could not get all animals: pq: missing FROM-clause entry for table "hc"
+[INFO]  2024/06/05 01:23:46 main.go:42: Server started on port: :8080
+[INFO]  2024/06/05 01:24:28 main.go:42: Server started on port: :8080
+[INFO]  2024/06/05 01:27:30 main.go:42: Server started on port: :8080
+[ERROR]  2024/06/05 01:27:40 animal.go:50: Could not get all animals: pq: missing FROM-clause entry for table "hc"
+[INFO]  2024/06/05 01:27:59 main.go:42: Server started on port: :8080
+[INFO]  2024/06/05 10:00:29 main.go:42: Server started on port: :8080
+[INFO]  2024/06/05 10:19:28 main.go:42: Server started on port: :8080
+[INFO]  2024/06/05 10:29:10 main.go:42: Server started on port: :8080
+[INFO]  2024/06/05 10:32:06 main.go:42: Server started on port: :8080
+[INFO]  2024/06/05 10:57:39 main.go:42: Server started on port: :8080
+[ERROR]  2024/06/05 11:19:36 animal.go:50: Could not get all animals: sql: Scan error on column index 4, name "weight": converting driver.Value type float64 ("1.5") to a int32: invalid syntax
+[ERROR]  2024/06/05 11:23:28 animal.go:50: Could not get all animals: sql: Scan error on column index 4, name "weight": converting driver.Value type float64 ("1.5") to a int32: invalid syntax
+[INFO]  2024/06/05 11:24:42 main.go:42: Server started on port: :8080
+[ERROR]  2024/06/05 11:24:50 animal.go:50: Could not get all animals: sql: expected 11 destination arguments in Scan, not 10
+[ERROR]  2024/06/05 11:24:51 animal.go:50: Could not get all animals: sql: expected 11 destination arguments in Scan, not 10
+[INFO]  2024/06/05 11:25:00 main.go:42: Server started on port: :8080
+[ERROR]  2024/06/05 11:25:01 animal.go:50: Could not get all animals: sql: Scan error on column index 4, name "weight": converting driver.Value type float64 ("1.5") to a int32: invalid syntax
+[INFO]  2024/06/05 11:25:22 main.go:42: Server started on port: :8080
+[ERROR]  2024/06/05 11:25:26 animal.go:50: Could not get all animals: sql: Scan error on column index 5, name "is_healthy": sql/driver: couldn't convert <nil> (<nil>) into type bool
+[INFO]  2024/06/05 11:26:17 main.go:42: Server started on port: :8080
+[INFO]  2024/06/05 11:27:17 main.go:42: Server started on port: :8080
+[INFO]  2024/06/05 11:48:03 main.go:50: Server started on port: :8080
+[INFO]  2024/06/05 11:48:50 animal.go:22: Animal created: {ID:19419 Type:mol Birth:2024-01-01 Weight:150 AnimalType:hayvon IsHealthy:false Condition:blablabla Medication:nowayyy}
+[INFO]  2024/06/05 11:48:56 main.go:50: Server started on port: :8080
+[INFO]  2024/06/05 11:50:18 main.go:50: Server started on port: :8080
+[INFO]  2024/06/05 11:59:46 main.go:50: Server started on port: :8080
+[INFO]  2024/06/05 12:00:45 main.go:53: Server started on port: :8080
+[INFO]  2024/06/05 12:01:17 main.go:53: Server started on port: :8080
+[INFO]  2024/06/05 12:01:23 main.go:53: Server started on port: :8080
+[INFO]  2024/06/05 12:03:48 main.go:53: Server started on port: :8080
+[INFO]  2024/06/05 12:05:13 main.go:53: Server started on port: :8080
+[INFO]  2024/06/05 12:06:39 main.go:53: Server started on port: :8080
+[WARN]  2024/06/05 12:08:30 notification.go:39: 5 ta hayvonlar och qoldi: [{ID:80336 Type:sheep AnimalType:parranda Birth:2024-01-01T00:00:00Z Weight:5 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:0.127 AvgWater:40.81} {ID:39604 Type:tovuq AnimalType:parranda Birth:2024-01-01T00:00:00Z Weight:5 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:0.127 AvgWater:40.81} {ID:59907 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:100 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:1.437 AvgWater:1.348} {ID:50698 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:100 HealthCondition:{IsHealthy:false Condition:blablabla Medication:nowayyy} AvgConsumption:1.437 AvgWater:1.348} {ID:19419 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:150 HealthCondition:{IsHealthy:false Condition:blablabla Medication:nowayyy} AvgConsumption:2.156 AvgWater:2.023}]
+[WARN]  2024/06/05 12:08:31 notification.go:39: 5 ta hayvonlar och qoldi: [{ID:80336 Type:sheep AnimalType:parranda Birth:2024-01-01T00:00:00Z Weight:5 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:0.127 AvgWater:40.81} {ID:39604 Type:tovuq AnimalType:parranda Birth:2024-01-01T00:00:00Z Weight:5 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:0.127 AvgWater:40.81} {ID:59907 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:100 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:1.437 AvgWater:1.348} {ID:50698 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:100 HealthCondition:{IsHealthy:false Condition:blablabla Medication:nowayyy} AvgConsumption:1.437 AvgWater:1.348} {ID:19419 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:150 HealthCondition:{IsHealthy:false Condition:blablabla Medication:nowayyy} AvgConsumption:2.156 AvgWater:2.023}]
+[WARN]  2024/06/05 12:08:32 notification.go:39: 5 ta hayvonlar och qoldi: [{ID:80336 Type:sheep AnimalType:parranda Birth:2024-01-01T00:00:00Z Weight:5 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:0.127 AvgWater:40.81} {ID:39604 Type:tovuq AnimalType:parranda Birth:2024-01-01T00:00:00Z Weight:5 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:0.127 AvgWater:40.81} {ID:59907 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:100 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:1.437 AvgWater:1.348} {ID:50698 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:100 HealthCondition:{IsHealthy:false Condition:blablabla Medication:nowayyy} AvgConsumption:1.437 AvgWater:1.348} {ID:19419 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:150 HealthCondition:{IsHealthy:false Condition:blablabla Medication:nowayyy} AvgConsumption:2.156 AvgWater:2.023}]
+[WARN]  2024/06/05 12:08:33 notification.go:39: 5 ta hayvonlar och qoldi: [{ID:80336 Type:sheep AnimalType:parranda Birth:2024-01-01T00:00:00Z Weight:5 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:0.127 AvgWater:40.81} {ID:39604 Type:tovuq AnimalType:parranda Birth:2024-01-01T00:00:00Z Weight:5 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:0.127 AvgWater:40.81} {ID:59907 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:100 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:1.437 AvgWater:1.348} {ID:50698 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:100 HealthCondition:{IsHealthy:false Condition:blablabla Medication:nowayyy} AvgConsumption:1.437 AvgWater:1.348} {ID:19419 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:150 HealthCondition:{IsHealthy:false Condition:blablabla Medication:nowayyy} AvgConsumption:2.156 AvgWater:2.023}]
+[WARN]  2024/06/05 12:08:34 notification.go:39: 5 ta hayvonlar och qoldi: [{ID:80336 Type:sheep AnimalType:parranda Birth:2024-01-01T00:00:00Z Weight:5 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:0.127 AvgWater:40.81} {ID:39604 Type:tovuq AnimalType:parranda Birth:2024-01-01T00:00:00Z Weight:5 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:0.127 AvgWater:40.81} {ID:59907 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:100 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:1.437 AvgWater:1.348} {ID:50698 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:100 HealthCondition:{IsHealthy:false Condition:blablabla Medication:nowayyy} AvgConsumption:1.437 AvgWater:1.348} {ID:19419 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:150 HealthCondition:{IsHealthy:false Condition:blablabla Medication:nowayyy} AvgConsumption:2.156 AvgWater:2.023}]
+[WARN]  2024/06/05 12:08:35 notification.go:39: 5 ta hayvonlar och qoldi: [{ID:80336 Type:sheep AnimalType:parranda Birth:2024-01-01T00:00:00Z Weight:5 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:0.127 AvgWater:40.81} {ID:39604 Type:tovuq AnimalType:parranda Birth:2024-01-01T00:00:00Z Weight:5 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:0.127 AvgWater:40.81} {ID:59907 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:100 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:1.437 AvgWater:1.348} {ID:50698 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:100 HealthCondition:{IsHealthy:false Condition:blablabla Medication:nowayyy} AvgConsumption:1.437 AvgWater:1.348} {ID:19419 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:150 HealthCondition:{IsHealthy:false Condition:blablabla Medication:nowayyy} AvgConsumption:2.156 AvgWater:2.023}]
+[WARN]  2024/06/05 12:08:36 notification.go:39: 5 ta hayvonlar och qoldi: [{ID:80336 Type:sheep AnimalType:parranda Birth:2024-01-01T00:00:00Z Weight:5 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:0.127 AvgWater:40.81} {ID:39604 Type:tovuq AnimalType:parranda Birth:2024-01-01T00:00:00Z Weight:5 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:0.127 AvgWater:40.81} {ID:59907 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:100 HealthCondition:{IsHealthy:true Condition:Healthy Medication:None} AvgConsumption:1.437 AvgWater:1.348} {ID:50698 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:100 HealthCondition:{IsHealthy:false Condition:blablabla Medication:nowayyy} AvgConsumption:1.437 AvgWater:1.348} {ID:19419 Type:mol AnimalType:hayvon Birth:2024-01-01T00:00:00Z Weight:150 HealthCondition:{IsHealthy:false Condition:blablabla Medication:nowayyy} AvgConsumption:2.156 AvgWater:2.023}]
+[WARN]  2024/06/05 12:09:03 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:04 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:05 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:06 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:07 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:08 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:09 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:10 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:11 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:12 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:13 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:14 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:15 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:16 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:17 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:18 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:19 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:20 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:21 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:22 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:23 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:24 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:25 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:26 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:27 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:28 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:09:29 notification.go:36: 5 ta hayvonlar och qoldi:
+[WARN]  2024/06/05 12:25:34 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:35 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:36 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:37 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:38 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:39 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:40 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:41 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:42 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:43 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:44 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:45 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:46 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:47 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:48 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:49 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:50 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:51 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:52 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:53 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:54 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:55 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:56 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:57 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:58 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:25:59 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:26:00 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:26:01 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:26:02 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:26:03 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:26:04 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:26:05 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:26:06 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:26:07 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:26:08 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:26:09 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:26:10 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:26:11 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:26:12 notification.go:48: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:26:32 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:33 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:34 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:35 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:36 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:37 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:38 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:39 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:40 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:41 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:42 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:43 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:44 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:45 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:46 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:47 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:48 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:49 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:50 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:51 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:52 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:53 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:54 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:55 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:56 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:57 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:58 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:26:59 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:27:00 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:27:01 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:27:02 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:27:03 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:27:04 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:27:05 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:27:06 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:27:07 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:27:08 notification.go:54: 2 ta hayvonlar kasal!!!
+[INFO]  2024/06/05 12:29:31 main.go:54: Server started on port: :8080
+[WARN]  2024/06/05 12:29:31 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:29:32 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:29:33 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:29:34 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:29:35 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:29:36 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:29:37 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:29:38 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:29:39 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:29:40 notification.go:54: 2 ta hayvonlar kasal!!!
+[INFO]  2024/06/05 12:29:44 main.go:54: Server started on port: :8080
+[INFO]  2024/06/05 12:30:12 main.go:54: Server started on port: :8080
+[WARN]  2024/06/05 12:30:12 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:30:13 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:30:14 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[INFO]  2024/06/05 12:30:56 main.go:54: Server started on port: :8080
+[WARN]  2024/06/05 12:30:56 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:30:57 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:30:58 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:30:59 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:31:00 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:31:01 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:31:02 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:31:03 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:31:04 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:31:05 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[INFO]  2024/06/05 12:31:07 main.go:54: Server started on port: :8080
+[INFO]  2024/06/05 12:32:58 main.go:54: Server started on port: :8080
+[WARN]  2024/06/05 12:32:58 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:32:59 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:33:00 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:33:01 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:33:02 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:33:03 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:33:04 notification.go:54: 2 ta hayvonlar kasal!!!
+[INFO]  2024/06/05 12:33:06 main.go:54: Server started on port: :8080
+[INFO]  2024/06/05 12:33:16 main.go:54: Server started on port: :8080
+[WARN]  2024/06/05 12:33:16 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:33:17 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:33:18 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:33:19 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[INFO]  2024/06/05 12:33:21 main.go:54: Server started on port: :8080
+[WARN]  2024/06/05 12:33:21 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:33:21 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:33:22 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:33:22 notification.go:54: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:33:23 notification.go:50: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:33:23 notification.go:54: 2 ta hayvonlar kasal!!!
+[INFO]  2024/06/05 12:36:09 main.go:54: Server started on port: :8080
+[WARN]  2024/06/05 12:36:09 notification.go:53: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:36:09 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:36:10 notification.go:53: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:36:10 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:36:11 notification.go:53: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:36:11 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:36:12 notification.go:53: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:36:12 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:36:13 notification.go:53: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:36:13 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:36:14 notification.go:53: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:36:14 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:36:15 notification.go:53: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:36:15 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:36:16 notification.go:53: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:36:16 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:36:17 notification.go:53: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:36:17 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:36:18 notification.go:53: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:36:18 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:36:19 notification.go:53: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:36:19 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:36:20 notification.go:53: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 12:36:20 notification.go:57: 2 ta hayvonlar kasal!!!
+[INFO]  2024/06/05 12:38:46 main.go:54: Server started on port: :8080
+[ERROR]  2024/06/05 12:38:46 notification.go:41: gocron: wrong list of params
+[INFO]  2024/06/05 12:42:11 main.go:54: Server started on port: :8080
+[INFO]  2024/06/05 12:43:33 main.go:54: Server started on port: :8080
+[INFO]  2024/06/05 12:43:42 main.go:54: Server started on port: :8080
+[INFO]  2024/06/05 12:44:23 main.go:54: Server started on port: :8080
+[WARN]  2024/06/05 12:44:23 notification.go:64: 2 ta hayvonlar kasal!!!
+[INFO]  2024/06/05 12:45:54 main.go:54: Server started on port: :8080
+[INFO]  2024/06/05 12:46:23 main.go:54: Server started on port: :8080
+[INFO]  2024/06/05 12:46:32 main.go:54: Server started on port: :8080
+[INFO]  2024/06/05 12:47:07 main.go:54: Server started on port: :8080
+[INFO]  2024/06/05 12:47:31 main.go:54: Server started on port: :8080
+[INFO]  2024/06/05 12:48:22 main.go:54: Server started on port: :8080
+[INFO]  2024/06/05 12:48:47 main.go:55: Server started on port: :8080
+[INFO]  2024/06/05 12:49:00 main.go:50: Server started on port: :8080
+[INFO]  2024/06/05 12:49:30 main.go:50: Server started on port: :8080
+[INFO]  2024/06/05 12:49:53 main.go:50: Server started on port: :8080
+[INFO]  2024/06/05 12:50:22 main.go:50: Server started on port: :8080
+[INFO]  2024/06/05 12:50:55 main.go:50: Server started on port: :8080
+[INFO]  2024/06/05 12:51:33 main.go:50: Server started on port: :8080
+[INFO]  2024/06/05 12:56:07 main.go:50: Server started on port: :8080
+[WARN]  2024/06/05 12:56:07 notification.go:64: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:08 notification.go:64: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:09 notification.go:64: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:10 notification.go:64: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:11 notification.go:64: 2 ta hayvonlar kasal!!!
+[INFO]  2024/06/05 12:56:33 main.go:50: Server started on port: :8080
+[WARN]  2024/06/05 12:56:33 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:34 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:35 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:36 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:37 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:38 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:39 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:40 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:41 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:42 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:43 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:44 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:45 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:46 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:47 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:48 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:49 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:50 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:51 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:52 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:53 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:54 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:55 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:56 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:57 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:58 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:56:59 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:00 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:01 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:02 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:03 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:04 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:05 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:06 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:07 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:08 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:09 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:10 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:11 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:12 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:13 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:14 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:15 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:16 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:17 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:18 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:19 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:20 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:21 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:22 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:23 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:24 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:25 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:26 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:27 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:28 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:29 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:30 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:31 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:32 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:33 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:34 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:35 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:36 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:37 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:38 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:39 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:40 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:41 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:42 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:43 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:44 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:45 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 12:57:46 notification.go:57: 2 ta hayvonlar kasal!!!
+[INFO]  2024/06/05 13:01:01 main.go:50: Server started on port: :8080
+[WARN]  2024/06/05 13:01:01 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:01 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:02 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:02 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:03 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:03 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:04 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:04 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:05 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:05 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:06 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:06 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:07 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:07 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:08 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:08 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:09 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:09 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:10 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:10 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:11 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:11 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:12 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:12 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:13 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:13 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:14 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:14 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:15 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:15 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:16 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:16 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:17 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:17 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:18 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:18 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:19 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:19 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:20 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:20 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:21 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:21 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:22 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:22 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:23 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:23 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:24 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:24 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:25 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:25 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:26 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:26 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:27 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:27 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:28 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:28 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:29 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:29 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:30 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:30 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:31 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:31 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:32 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:32 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:33 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:33 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:34 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:34 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:35 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:35 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:36 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:36 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:37 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:37 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:38 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:38 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:39 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:39 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:40 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:40 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:41 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:41 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:42 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:42 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:43 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:43 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:44 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:44 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:45 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:45 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:46 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:46 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:47 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:47 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:48 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:48 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:49 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:49 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:50 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:50 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:51 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:51 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:52 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:52 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:53 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:53 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:54 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:54 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:55 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:55 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:56 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:56 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:57 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:57 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:58 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:58 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:01:59 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:01:59 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:00 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:00 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:01 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:01 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:02 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:02 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:03 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:03 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:04 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:04 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:05 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:05 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:06 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:06 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:07 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:07 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:08 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:08 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:09 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:09 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:10 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:10 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:11 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:11 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:12 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:12 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:13 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:13 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:14 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:14 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:15 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:15 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:16 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:16 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:17 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:17 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:18 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:18 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:19 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:19 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:20 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:20 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:21 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:21 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:22 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:22 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:23 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:23 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:24 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:24 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:25 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:25 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:26 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:26 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:27 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:27 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:28 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:28 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:29 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:29 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:30 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:30 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:31 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:31 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:32 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:32 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:33 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:33 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:34 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:02:34 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:35 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:02:35 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[INFO]  2024/06/05 13:03:01 main.go:50: Server started on port: :8080
+[WARN]  2024/06/05 13:03:01 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:01 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:02 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:02 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:03 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:03 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:04 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:04 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:05 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:05 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:06 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:06 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:07 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:07 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:08 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:08 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:09 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:09 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:10 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:10 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:11 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:11 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:12 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:12 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:13 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:13 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:14 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:14 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:15 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:15 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:16 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:16 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:17 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:17 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:18 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:18 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:19 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:19 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:20 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:20 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:21 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:21 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:22 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:22 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:23 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:23 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:24 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:24 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:25 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:25 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:26 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:26 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:27 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:27 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:28 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:28 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:29 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:29 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:30 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:30 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:31 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:31 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:32 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:32 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:33 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:33 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:34 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:34 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:35 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:35 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:36 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:36 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:37 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:37 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:38 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:38 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:39 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:39 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:40 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:40 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:41 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:41 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:42 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:42 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:43 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:43 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:44 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:44 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:45 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:45 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:46 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:46 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:47 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:47 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:48 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:48 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:49 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:49 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:50 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:50 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:51 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:51 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:52 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:52 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:53 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:53 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:54 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:54 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:55 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:55 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:56 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:56 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:57 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:57 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:58 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:03:58 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:59 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:03:59 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:00 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:00 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:01 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:01 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:02 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:02 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:03 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:03 notification.go:57: 2 ta hayvonlar kasal!!!
+[INFO]  2024/06/05 13:04:17 main.go:50: Server started on port: :8080
+[WARN]  2024/06/05 13:04:17 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:17 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:18 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:18 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:19 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:19 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:20 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:20 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:21 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:21 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:22 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:22 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:23 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:23 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:24 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:24 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:25 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:25 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:26 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:26 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:27 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:27 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:28 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:28 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:29 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:29 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:30 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:30 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:31 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:31 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:32 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:32 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:33 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:33 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:34 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:34 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:35 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:35 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:36 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:36 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:37 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:37 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:38 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:38 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:39 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:39 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:40 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:40 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:41 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:41 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:42 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:42 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:43 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:44 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:45 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:46 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:47 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:48 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:49 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:50 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:51 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:52 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:53 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:54 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:55 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:56 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:56 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:57 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:57 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:58 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:58 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:04:59 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:04:59 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:00 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:05:00 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:01 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:05:01 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:02 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:02 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:05:03 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:05:03 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:04 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:04 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:05:05 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:05 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:05:06 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:05:06 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:07 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:07 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:05:08 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:05:08 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:09 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:05:09 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:10 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:10 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:05:11 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:11 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:05:12 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:12 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:05:13 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:05:13 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:14 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:05:14 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:15 notification.go:57: 2 ta hayvonlar kasal!!!
+[WARN]  2024/06/05 13:05:15 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:16 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:17 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:18 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:19 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:20 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:21 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:22 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:05:23 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[INFO]  2024/06/05 13:41:53 main.go:50: Server started on port: :8080
+[WARN]  2024/06/05 13:41:53 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:41:54 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:41:55 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:41:56 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:41:57 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:41:58 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:41:59 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:00 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:01 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:02 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:03 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:04 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:05 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:06 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:07 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:08 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:09 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:10 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:11 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:12 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:13 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:14 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:15 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:16 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:17 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:18 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:19 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:20 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:21 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:22 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:23 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:24 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:25 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:26 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:27 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:28 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:29 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:30 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:31 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:32 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:33 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:34 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[INFO]  2024/06/05 13:42:34 provision.go:39: Created provision: {yemish hayvon %!s(float64=50)}
+[WARN]  2024/06/05 13:42:35 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:36 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[INFO]  2024/06/05 13:42:36 provision.go:39: Created provision: {yemish hayvon %!s(float64=50)}
+[WARN]  2024/06/05 13:42:37 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:38 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:39 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:40 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:41 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:42 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:43 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:44 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:45 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:46 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:47 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:48 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:49 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:50 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:51 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:52 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:53 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:54 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:55 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:56 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:57 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:58 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:42:59 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:00 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:01 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:02 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:03 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:04 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:05 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:06 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:07 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:08 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:09 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:10 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:11 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:12 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:13 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:14 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:15 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:16 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:17 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:18 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:19 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:20 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:21 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:22 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:23 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:24 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:25 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:26 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:27 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:28 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:29 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:30 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:31 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:32 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:33 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:34 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:35 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:36 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:37 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:38 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:39 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:40 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:41 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:42 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:43 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:44 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:45 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:46 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:47 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:48 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:49 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:50 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:51 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:52 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:53 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:54 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:55 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:56 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:57 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:58 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:43:59 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:00 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:01 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:02 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:03 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:04 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:05 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:06 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:07 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:08 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:09 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:10 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:11 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:12 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:13 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:14 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:15 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:16 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:17 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:18 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:19 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:20 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:21 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:22 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:23 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:24 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:25 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:26 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:27 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:28 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:29 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:30 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:31 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:32 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:33 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:34 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:35 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:36 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:37 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:38 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:39 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:40 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:41 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:42 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:43 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:44 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:45 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:46 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:47 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:48 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:49 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:50 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:51 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:52 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:53 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:54 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:55 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:56 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:57 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:58 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/05 13:44:59 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[INFO]  2024/06/05 13:45:31 main.go:50: Server started on port: :8080

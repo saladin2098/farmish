@@ -1,0 +1,438 @@
+definitions:
+  models.Animal:
+    properties:
+      animalType:
+        type: string
+      avgConsumption:
+        type: number
+      avgWater:
+        type: number
+      birth:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        type: integer
+      feeding:
+        $ref: '#/definitions/models.FeedingSchedule'
+      healthCondition:
+        $ref: '#/definitions/models.HealthCondition'
+      id:
+        type: integer
+      type:
+        type: string
+      updatedAt:
+        type: string
+      weight:
+        type: integer
+    type: object
+  models.AnimalCreate:
+    properties:
+      animal_type:
+        type: string
+      birth:
+        type: string
+      condition:
+        type: string
+      id:
+        type: integer
+      is_healthy:
+        type: boolean
+      medication:
+        type: string
+      type:
+        type: string
+      weight:
+        type: integer
+    type: object
+  models.AnimalGet:
+    properties:
+      animal_type:
+        type: string
+      avg_consumption:
+        type: number
+      avg_water:
+        type: number
+      birth:
+        type: string
+      healthCondition:
+        $ref: '#/definitions/models.HealthConditionGet'
+      id:
+        type: integer
+      type:
+        type: string
+      weight:
+        type: number
+    type: object
+  models.AnimalUpdate:
+    properties:
+      condition:
+        type: string
+      id:
+        type: integer
+      is_healthy:
+        type: boolean
+      medication:
+        type: string
+      weight:
+        type: integer
+    type: object
+  models.AnimalsGetAll:
+    properties:
+      animals:
+        items:
+          $ref: '#/definitions/models.AnimalGet'
+        type: array
+      count:
+        type: integer
+    type: object
+  models.BodyProvision:
+    properties:
+      animalType:
+        type: string
+      quantity:
+        type: number
+      type:
+        type: string
+    type: object
+  models.FeedingSchedule:
+    properties:
+      animalType:
+        type: string
+      id:
+        type: integer
+      lastFedIndex:
+        type: integer
+      nextFedIndex:
+        type: integer
+      scheduleID:
+        type: integer
+    type: object
+  models.GetAllProvisions:
+    properties:
+      count:
+        type: integer
+      provisions:
+        items:
+          $ref: '#/definitions/models.GetProvision'
+        type: array
+    type: object
+  models.GetProvision:
+    properties:
+      id:
+        type: integer
+      quantity:
+        type: number
+      type:
+        type: string
+    type: object
+  models.HealthCondition:
+    properties:
+      animalID:
+        type: integer
+      condition:
+        type: string
+      id:
+        type: integer
+      isHealthy:
+        type: boolean
+      medication:
+        type: string
+    type: object
+  models.HealthConditionGet:
+    properties:
+      condition:
+        type: string
+      isHealthy:
+        type: boolean
+      medication:
+        type: string
+    type: object
+  models.UpdateProvision:
+    properties:
+      id:
+        type: integer
+      quantity:
+        type: number
+      type:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /animal:
+    post:
+      consumes:
+      - application/json
+      description: Create a new animal
+      operationId: create_animal
+      parameters:
+      - description: Animal data
+        in: body
+        name: animal
+        required: true
+        schema:
+          $ref: '#/definitions/models.AnimalCreate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Animal created
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Create Animal
+      tags:
+      - Animal
+  /animal/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get an animal by ID
+      operationId: get_animal
+      parameters:
+      - description: Animal ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Animal data
+          schema:
+            $ref: '#/definitions/models.Animal'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Get Animal
+      tags:
+      - Animal
+    put:
+      consumes:
+      - application/json
+      description: Update an animal's information
+      operationId: update_animal
+      parameters:
+      - description: Animal ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Animal data
+        in: body
+        name: animal
+        required: true
+        schema:
+          $ref: '#/definitions/models.AnimalUpdate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Animal updated
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Update Animal
+      tags:
+      - Animal
+  /animals:
+    get:
+      consumes:
+      - application/json
+      description: Get all animals with optional filters
+      operationId: get_all_animals
+      parameters:
+      - description: Animal type
+        in: query
+        name: type
+        type: string
+      - description: Is Healthy
+        in: query
+        name: is_healthy
+        type: string
+      - description: Is Hungry
+        in: query
+        name: is_hungry
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Animals data
+          schema:
+            $ref: '#/definitions/models.AnimalsGetAll'
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Get All Animals
+      tags:
+      - Animal
+  /provision:
+    get:
+      consumes:
+      - application/json
+      description: Get All Provisions
+      operationId: get_all_provisions
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Provisions data
+          schema:
+            $ref: '#/definitions/models.GetAllProvisions'
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Get All Provisions
+      tags:
+      - Provision
+    post:
+      consumes:
+      - application/json
+      description: Create Provision
+      operationId: create_provision
+      parameters:
+      - description: Created Provision
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.BodyProvision'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Provision data
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Create Provision
+      tags:
+      - Provision
+  /provision/:
+    put:
+      consumes:
+      - application/json
+      description: Update a provision
+      operationId: update_provision
+      parameters:
+      - description: Provision ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Provision data
+        in: body
+        name: provision
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateProvision'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Provision updated successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Update Provision
+      tags:
+      - Provision
+  /provision/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a provision by ID
+      operationId: delete_provision
+      parameters:
+      - description: Provision ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Provision deleted successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Delete Provision
+      tags:
+      - Provision
+  /rovision/{id}{type}{animal_type}{quantity}:
+    get:
+      consumes:
+      - application/json
+      description: Get a provision by ID
+      operationId: get_provision_by_id
+      parameters:
+      - description: Provision ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Provision data
+          schema:
+            $ref: '#/definitions/models.GetProvision'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Get Provision By ID
+      tags:
+      - Provision
+swagger: "2.0"
