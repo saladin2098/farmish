@@ -89,7 +89,7 @@ const docTemplate = `{
                     "200": {
                         "description": "Animal data",
                         "schema": {
-                            "$ref": "#/definitions/models.Animal"
+                            "$ref": "#/definitions/models.AnimalGet"
                         }
                     },
                     "400": {
@@ -157,6 +157,49 @@ const docTemplate = `{
                         }
                     }
                 }
+            },
+            "delete": {
+                "description": "Delete an animal by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Animal"
+                ],
+                "summary": "Delete Animal",
+                "operationId": "delete_animal",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Animal ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Animal Deleted",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
             }
         },
         "/animals": {
@@ -198,6 +241,42 @@ const docTemplate = `{
                         "description": "Animals data",
                         "schema": {
                             "$ref": "#/definitions/models.AnimalsGetAll"
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/dashboard/get-animals-count": {
+            "get": {
+                "description": "Retrieve the total count of animals in the system",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Dashboard"
+                ],
+                "summary": "Get the count of animals",
+                "operationId": "getAnimalCount",
+                "responses": {
+                    "200": {
+                        "description": "Animals count",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
                         }
                     },
                     "500": {
@@ -430,47 +509,6 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "models.Animal": {
-            "type": "object",
-            "properties": {
-                "animalType": {
-                    "type": "string"
-                },
-                "avgConsumption": {
-                    "type": "number"
-                },
-                "avgWater": {
-                    "type": "number"
-                },
-                "birth": {
-                    "type": "string"
-                },
-                "createdAt": {
-                    "type": "string"
-                },
-                "deletedAt": {
-                    "type": "integer"
-                },
-                "feeding": {
-                    "$ref": "#/definitions/models.FeedingSchedule"
-                },
-                "healthCondition": {
-                    "$ref": "#/definitions/models.HealthCondition"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "type": "string"
-                },
-                "weight": {
-                    "type": "integer"
-                }
-            }
-        },
         "models.AnimalCreate": {
             "type": "object",
             "properties": {
@@ -577,26 +615,6 @@ const docTemplate = `{
                 }
             }
         },
-        "models.FeedingSchedule": {
-            "type": "object",
-            "properties": {
-                "animalType": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "lastFedIndex": {
-                    "type": "integer"
-                },
-                "nextFedIndex": {
-                    "type": "integer"
-                },
-                "scheduleID": {
-                    "type": "integer"
-                }
-            }
-        },
         "models.GetAllProvisions": {
             "type": "object",
             "properties": {
@@ -621,26 +639,6 @@ const docTemplate = `{
                     "type": "number"
                 },
                 "type": {
-                    "type": "string"
-                }
-            }
-        },
-        "models.HealthCondition": {
-            "type": "object",
-            "properties": {
-                "animalID": {
-                    "type": "integer"
-                },
-                "condition": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "isHealthy": {
-                    "type": "boolean"
-                },
-                "medication": {
                     "type": "string"
                 }
             }
@@ -686,7 +684,6 @@ var SwaggerInfo = &swag.Spec{
 	Description:      "",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
-
 }
 
 func init() {

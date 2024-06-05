@@ -162,18 +162,24 @@ func (p *ProvisionRepo) DeleteProvision(id int) error {
 
 	return err
 }
-
 func (p *ProvisionRepo) ProvisionData(animal_type string) (bool, error) {
 	var provision models.Provision
 	var quantity float64
 	query := "select sum(avg_consumption) from animals where animal_type = $1"
 
-	err := p.Conn.QueryRow(query, animal_type).Scan(
-		&quantity,
-	)
-
-	if quantity*18 > provision.Quantity {
+	err := p.Conn.QueryRow(query, animal_type).Scan(&quantity)
+	if err != nil {
 		return false, err
 	}
-	return true, err
+	query = "select quantity from provision where animal_type=$1"
+	err = p.Conn.QueryRow(query, animal_type).Scan(&provision.Quantity)
+	if err != nil {
+		return false, err
+	}
+
+	if quantity*18 > provision.Quantity {
+		return false, nil
+	}
+
+	return true, nil
 }

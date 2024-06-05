@@ -12,6 +12,8 @@ import (
 	"fmt"
 	"path/filepath"
 	"runtime"
+	"sync"
+	"time"
 )
 
 var (
@@ -36,18 +38,35 @@ func main() {
 	hs := service.NewHealthConditionService(hr)
 	ps := service.NewProvisionService(pr)
 	service := service.NewService(*as, *hs, *ps)
-	h := handlers.NewHTTPHandler(service, *logger)
-	r := api.NewGin(h)
 
 	dash := dashboard.NewDashboard(*service)
 	notif := dashboard.NewNotification(*logger, *dash)
 
-	fmt.Println(1111)
-	go notif.SendNotifAboutHungryAnimals()
-	go notif.SendNotifAboutSickAnimals()
+	var wg sync.WaitGroup
+	wg.Add(3)
+	time.Sleep(10 * time.Microsecond)
+	go func() {
+		defer wg.Done()
+		notif.SendNotifAboutHungryAnimals()
+	}()
+	time.Sleep(10 * time.Microsecond)
 
+	go func() {
+		defer wg.Done()
+		notif.SendNotifAboutSickAnimals()
+	}()
+	time.Sleep(10 * time.Microsecond)
+
+	go func() {
+		defer wg.Done()
+		notif.SendNotifAboutProvision()
+	}()
+
+	h := handlers.NewHTTPHandler(service, dash, *logger)
+	r := api.NewGin(h)
 	fmt.Printf("Server started on port %s\n", config.HTTP_PORT)
 	logger.INFO.Println("Server started on port: " + config.HTTP_PORT)
 	err = r.Run(config.HTTP_PORT)
 	em.CheckErr(err)
+	wg.Wait()
 }

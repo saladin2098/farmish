@@ -36,7 +36,7 @@ func (h *HTTPHandler) CreateProvision(c *gin.Context) {
 		return
 	}
 
-	h.Logger.INFO.Printf("Created provision: %s", body)
+	h.Logger.INFO.Printf("Created provision: %+v", body)
 	c.JSON(http.StatusCreated, "Provision successfully")
 }
 

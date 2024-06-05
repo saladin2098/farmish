@@ -18,7 +18,7 @@ func NewNotification(logger logger.Logger, dashboard Dashboard) *Notification {
 }
 
 func (n *Notification) SendNotifAboutHungryAnimals() {
-	n.Scheduler.Every(1).Second().Do(func() {
+	n.Scheduler.Every(5).Seconds().Do(func() {
 		err := n.warnHungryAnimals()
 		if err != nil {
 			n.Logger.ERROR.Println(err)
@@ -28,7 +28,7 @@ func (n *Notification) SendNotifAboutHungryAnimals() {
 }
 
 func (n *Notification) SendNotifAboutSickAnimals() {
-	n.Scheduler.Every(1).Second().Do(func() {
+	n.Scheduler.Every(5).Seconds().Do(func() {
 		err := n.warnSickAnimals()
 		if err != nil {
 			n.Logger.ERROR.Println(err)
@@ -59,23 +59,26 @@ func (n *Notification) warnSickAnimals() error {
 	return nil
 }
 
-// func (n *Notification) SendNotifAboutProvision() {
-// 	n.Scheduler.Every(1).Second().Do(func() {
-// 		err := n.warnProvision()
-// 		if err != nil {
-// 			n.Logger.ERROR.Println(err)
-// 		}
-// 	})
-// 	n.Scheduler.StartAsync()
-// }
+func (n *Notification) SendNotifAboutProvision() {
+	n.Scheduler.Every(5).Seconds().Do(func() {
+		err := n.warnProvision()
+		if err != nil {
+			n.Logger.ERROR.Println(err)
+		}
+	})
+	n.Scheduler.StartAsync()
+}
 
-// func (n *Notification) warnProvision() error {
-// 	animals, err := n.Dashboard.()
-// 	if err != nil {
-// 		return err
-// 	}
-// 	if animals.Count > 0 {
-// 		n.Logger.WARN.Printf("%d ta hayvonlar kasal!!!", animals.Count)
-// 	}
-// 	return nil
-// }
+func (n *Notification) warnProvision() error {
+	animals, poultry, err := n.Dashboard.CheckProvision()
+	if err != nil {
+		return err
+	}
+	if !animals {
+		n.Logger.WARN.Println("Hayvonlarning yemishi oz qoldi")
+	}
+	if !poultry {
+		n.Logger.WARN.Println("Parrandalarning yemishi oz qoldi")
+	}
+	return nil
+}

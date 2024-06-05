@@ -53,6 +53,12 @@ type AnimalUpdate struct {
 	Medication string `json:"medication"`
 }
 
+type ScheduleCreate struct {
+	Time1 string
+	Time2 string
+	Time3 string
+}
+
 type Schedule struct {
 	ID         int
 	AnimalType string

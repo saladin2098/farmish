@@ -1,31 +1,4 @@
 definitions:
-  models.Animal:
-    properties:
-      animalType:
-        type: string
-      avgConsumption:
-        type: number
-      avgWater:
-        type: number
-      birth:
-        type: string
-      createdAt:
-        type: string
-      deletedAt:
-        type: integer
-      feeding:
-        $ref: '#/definitions/models.FeedingSchedule'
-      healthCondition:
-        $ref: '#/definitions/models.HealthCondition'
-      id:
-        type: integer
-      type:
-        type: string
-      updatedAt:
-        type: string
-      weight:
-        type: integer
-    type: object
   models.AnimalCreate:
     properties:
       animal_type:
@@ -95,19 +68,6 @@ definitions:
       type:
         type: string
     type: object
-  models.FeedingSchedule:
-    properties:
-      animalType:
-        type: string
-      id:
-        type: integer
-      lastFedIndex:
-        type: integer
-      nextFedIndex:
-        type: integer
-      scheduleID:
-        type: integer
-    type: object
   models.GetAllProvisions:
     properties:
       count:
@@ -124,19 +84,6 @@ definitions:
       quantity:
         type: number
       type:
-        type: string
-    type: object
-  models.HealthCondition:
-    properties:
-      animalID:
-        type: integer
-      condition:
-        type: string
-      id:
-        type: integer
-      isHealthy:
-        type: boolean
-      medication:
         type: string
     type: object
   models.HealthConditionGet:
@@ -192,6 +139,35 @@ paths:
       tags:
       - Animal
   /animal/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete an animal by ID
+      operationId: delete_animal
+      parameters:
+      - description: Animal ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Animal Deleted
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Delete Animal
+      tags:
+      - Animal
     get:
       consumes:
       - application/json
@@ -209,7 +185,7 @@ paths:
         "200":
           description: Animal data
           schema:
-            $ref: '#/definitions/models.Animal'
+            $ref: '#/definitions/models.AnimalGet'
         "400":
           description: Bad Request
           schema:
@@ -289,6 +265,30 @@ paths:
       summary: Get All Animals
       tags:
       - Animal
+  /dashboard/get-animals-count:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve the total count of animals in the system
+      operationId: getAnimalCount
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Animals count
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Get the count of animals
+      tags:
+      - Dashboard
   /provision:
     get:
       consumes:

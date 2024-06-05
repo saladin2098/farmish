@@ -15,8 +15,18 @@ func NewGin(h *handlers.HTTPHandler) *gin.Engine {
 
 	r.GET("/api/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
+	dash := r.Group("/dashboard")
+	dash.GET("/get-animals-count", h.GetAnimalsCount)
+	dash.GET("/get-awg-weight", h.GetAvgWeight)
+	// dash.GET("/get-sick-animals")
+	// dash.GET("/get-hungry-animals")
+	// dash.GET("/check-provision")
+
 	animal := r.Group("/animal")
 	animal.POST("/", h.CreateAnimal)
+	animal.GET("/:id", h.GetAnimal)
+	animal.PUT("/:id", h.UpdateAnimal)
+	animal.DELETE("/:id", h.DeleteAnimal)
 	r.GET("/animals", h.GetAllAnimals)
 
 	provision := r.Group("/provision")

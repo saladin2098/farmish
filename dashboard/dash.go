@@ -13,6 +13,7 @@ func NewDashboard(service service.Service) *Dashboard {
 	return &Dashboard{Service: service}
 }
 
+// animals int, poultries int
 func (d *Dashboard) GetAnimalsCount() (int, int, error) {
 	animals, err := d.Service.AR.GetAllAnimals("hayvon", "", "")
 	if err != nil {
@@ -25,6 +26,7 @@ func (d *Dashboard) GetAnimalsCount() (int, int, error) {
 	return int(animals.Count), int(poultries.Count), nil
 }
 
+// animals int, poultries int
 func (d *Dashboard) GetAvgWeight() (float32, float32, error) {
 	animals, err := d.Service.AR.GetAllAnimals("hayvon", "", "")
 	if err != nil {

@@ -14,14 +14,20 @@ func NewAnimalRepo(db *sql.DB) *AnimalRepo {
 	return &AnimalRepo{Conn: db}
 }
 
-func (m *AnimalRepo) GetAnimalByID(id int) (*models.Animal, error) {
-	query := "SELECT id, type, birth, weight, avg_consumption, avg_water, created_at, updated_at, deleted_at FROM animals WHERE id = $1"
-	animal := models.Animal{}
+func (m *AnimalRepo) GetAnimalByID(id int) (*models.AnimalGet, error) {
+	query := `
+	SELECT a.id, a.type, a.birth, a.weight, 
+	hc.is_healthy, hc.condition, hc.medication, 
+	a.avg_consumption, a.avg_water FROM animals a
+	JOIN health_conditions hc ON a.id = hc.animal_id
+	WHERE a.id = $1
+	`
+	animal := models.AnimalGet{}
 	row := m.Conn.QueryRow(query, id)
 	err := row.Scan(
-		&animal.ID, &animal.Type, &animal.Birth,
-		&animal.Weight, &animal.AvgConsumption, &animal.AvgWater,
-		&animal.CreatedAt, &animal.UpdatedAt, &animal.DeletedAt,
+		&animal.ID, &animal.Type, &animal.Birth, &animal.Weight,
+		&animal.HealthCondition.IsHealthy, &animal.HealthCondition.Condition, &animal.HealthCondition.Medication,
+		&animal.AvgConsumption, &animal.AvgWater,
 	)
 	if err != nil {
 		return nil, err
