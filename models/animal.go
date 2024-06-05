@@ -19,20 +19,19 @@ type Animal struct {
 }
 
 type AnimalGet struct {
-	ID              int32  `json:"id"`
-	Type            string `json:"type"`
-	AnimalType      string `json:"animal_type"`
-	Birth           string `json:"birth"`
-	Weight          int32  `json:"weight"`
-	HealthCondition HealthCondition
-	Feeding         FeedingSchedule
+	ID              int32   `json:"id"`
+	Type            string  `json:"type"`
+	AnimalType      string  `json:"animal_type"`
+	Birth           string  `json:"birth"`
+	Weight          float64 `json:"weight"`
+	HealthCondition HealthConditionGet
 	AvgConsumption  float32 `json:"avg_consumption"`
 	AvgWater        float32 `json:"avg_water"`
 }
 
 type AnimalsGetAll struct {
 	Count   int32
-	Animals *[]AnimalGet
+	Animals []AnimalGet
 }
 
 type AnimalCreate struct {
@@ -67,5 +66,5 @@ type FeedingSchedule struct {
 	AnimalType   string
 	NextFedIndex int
 	LastFedIndex int
-	ScheduleID int
+	ScheduleID   int
 }

@@ -40,8 +40,18 @@ func (h *HTTPHandler) GetAnimal(c *gin.Context) {
 	c.JSON(200, animal)
 }
 
-func (h *HTTPHandler) GetAnimals(c *gin.Context) {
-	
+func (h *HTTPHandler) GetAllAnimals(c *gin.Context) {
+	animal_type := c.Query("type")
+	is_healthy := c.Query("is_healthy")
+	is_hungry := c.Query("is_hungry")
+
+	animals, err := h.Service.AR.GetAllAnimals(animal_type, is_healthy, is_hungry)
+	if err != nil {
+		h.Logger.ERROR.Printf("Could not get all animals: %s", err.Error())
+		c.String(500, "Could not get all animals:"+err.Error())
+		return
+	}
+	c.JSON(200, animals)
 }
 
 func (h *HTTPHandler) UpdateAnimal(c *gin.Context) {

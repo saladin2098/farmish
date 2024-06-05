@@ -16,6 +16,7 @@ func NewGin(h *handlers.HTTPHandler) *gin.Engine {
 
 	animal := r.Group("/animal")
 	animal.POST("/", h.CreateAnimal)
+	r.GET("/animals", h.GetAllAnimals)
 
 	provision := r.Group("/provision")
 	provision.POST("/", h.CreateProvision)

@@ -4,7 +4,6 @@ import (
 	"database/sql"
 	"farmish/models"
 	"fmt"
-	"time"
 )
 
 type AnimalRepo struct {
@@ -62,53 +61,62 @@ func (m *AnimalRepo) GetAllAnimalIds() ([]int, error) {
 	return ids, nil
 }
 
-func (m *AnimalRepo) GetAllAnimals(animal_type string, is_healthy bool, is_hungry bool) (*models.AnimalsGetAll, error) {
-
+func (m *AnimalRepo) GetAllAnimals(animal_type string, is_healthy, is_hungry string) (*models.AnimalsGetAll, error) {
+	all_animals := models.AnimalsGetAll{}
 	query := `
-	SELECT a.id, a.type, a.animal_type, a.birth, a.weight, hc.is_healthy, hc.condition, hc.medication, fs.last_fed_index, fs.sch1, fs.sch2, fs.sch3, a.avg_consumption, a.avg_water, a.created_at, a.updated_at, a.deleted_at
+	SELECT a.id, a.type, a.animal_type, a.birth, a.weight, 
+	h.is_healthy, h.condition, h.medication, 
+	a.avg_consumption, a.avg_water
 	FROM animals a
-	JOIN health_conditions hc ON a.id = hc.animal_id
-	JOIN feeding_schedules fs ON a.id = fs.animal_id
+	LEFT JOIN health_conditions h ON a.id = h.animal_id
+	LEFT JOIN feeding_schedules fs ON a.animal_type = fs.animal_type
+	LEFT JOIN schedules s ON fs.schedule_id = s.id
 	WHERE a.deleted_at = 0
 	`
 	var agrs []interface{}
 	paramIndex := 1
 	if animal_type != "" {
-		query += fmt.Sprintf(" AND a.type = $%d", paramIndex)
+		query += fmt.Sprintf(" AND a.animal_type = $%d", paramIndex)
 		agrs = append(agrs, animal_type)
 		paramIndex++
 	}
-	if is_healthy {
-		query += fmt.Sprintf(" AND hc.is_healthy = $%d", paramIndex)
-		agrs = append(agrs, is_healthy)
+	if is_healthy == "true" {
+		query += fmt.Sprintf(" AND h.is_healthy = $%d", paramIndex)
+		agrs = append(agrs, true)
+		paramIndex++
+	} else if is_healthy == "false" {
+		query += fmt.Sprintf(" AND h.is_healthy = $%d", paramIndex)
+		agrs = append(agrs, false)
 		paramIndex++
 	}
-	if is_hungry {
-		index, err := m.GetNextFedIndex(animal_type)
-		if err != nil {
-			return nil, err
-		}
-		schedule_id, err := m.GetScheduleID(animal_type)
-		if err != nil {
-			return nil, err
-		}
-		lastFedTimeStr, err := m.GetLastFedTime(index, schedule_id)
-		if err != nil {
-			return nil, err
-		}
-		lastFedTime, err := time.Parse(time.TimeOnly, lastFedTimeStr)
-		if err != nil {
-			return nil, err
-		}
-		fmt.Println(lastFedTime)
+	if is_hungry == "true" {
+		query += `
+		AND (
+			(fs.next_fed_index = '1' AND CAST(NOW() AS time) > s.time1) OR
+			(fs.next_fed_index = '2' AND CAST(NOW() AS time) > s.time2) OR
+			(fs.next_fed_index = '3' AND CAST(NOW() AS time) > s.time3)
+		);
+		`
 	}
-
 	rows, err := m.Conn.Query(query, agrs...)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
-	return nil, nil
+	for rows.Next() {
+		animal := models.AnimalGet{}
+		err := rows.Scan(&animal.ID, &animal.Type, &animal.AnimalType, &animal.Birth, &animal.Weight,
+			&animal.HealthCondition.IsHealthy, &animal.HealthCondition.Condition, &animal.HealthCondition.Medication,
+			&animal.AvgConsumption, &animal.AvgWater,
+		)
+		if err != nil {
+			return nil, err
+		}
+		all_animals.Animals = append(all_animals.Animals, animal)
+		all_animals.Count++
+	}
+	// fmt.Println(all_animals.Count, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+	return &all_animals, nil
 }
 
 func (m *AnimalRepo) CreateAnimal(animal *models.AnimalCreate, avg_water, avg_consumtion float64, gen_id int) (*models.Animal, error) {

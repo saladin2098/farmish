@@ -75,6 +75,14 @@ func (s *AnimalService) GetAnimal(id int) (*models.Animal, error) {
 	return animal, nil
 }
 
+func (s *AnimalService) GetAllAnimals(animal_type, is_healthy, is_hungry string) (*models.AnimalsGetAll, error) {
+	animals, err := s.AR.GetAllAnimals(animal_type, is_healthy, is_hungry)
+	if err != nil {
+		return nil, err
+	}
+	return animals, nil
+}
+
 func (s *AnimalService) UpdateAnimal(animal *models.AnimalUpdate) error {
 	if animal.IsHealthy {
 		animal.Condition = "Healthy"

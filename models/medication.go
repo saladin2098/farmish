@@ -22,11 +22,16 @@ type MedicarionaGrouped struct {
 	Medications []MedicinesGetAll
 }
 
+type HealthConditionGet struct {
+	IsHealthy  bool
+	Condition  string
+	Medication string
+}
+
 type HealthCondition struct {
 	ID         int
 	AnimalID   int
 	IsHealthy  bool
 	Condition  string
 	Medication string
-	IsTreated  bool
 }
