@@ -148,3 +148,7 @@
 [ERROR]  2024/06/06 10:07:04 feeding.go:25: Could not bind JSON: next schedule is at 07:00. You can start feeding animals from 06:00
 [ERROR]  2024/06/06 10:07:36 feeding.go:25: Could not bind JSON: next schedule is at 07:00. You can start feeding animals from 06:00
 [INFO]  2024/06/06 11:08:59 main.go:86: Server started on port: :8080
+[INFO]  2024/06/06 11:33:20 main.go:86: Server started on port: :8080
+[ERROR]  2024/06/06 11:33:35 feeding.go:25: Could not bind JSON: animals are already fed
+[ERROR]  2024/06/06 11:36:46 feeding.go:25: Could not bind JSON: animals are already fed
+[ERROR]  2024/06/06 11:47:12 feeding.go:25: Could not bind JSON: animals are already fed
