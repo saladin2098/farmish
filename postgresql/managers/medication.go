@@ -59,6 +59,7 @@ func (r *MedicationRepo) CreateMedication(med *m.Medications) (*m.Medications, e
 
 	return &existingMed, nil
 }
+
 func (r *MedicationRepo) GetMedication(id int, name, turi string) (*m.Medications, error) {
 	baseQuery := `select id, name, type, quantity from medications where `
 	var args []interface{}

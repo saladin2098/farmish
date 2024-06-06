@@ -4,8 +4,6 @@ import (
 	"database/sql"
 	"farmish/models"
 	"fmt"
-	"strconv"
-	"strings"
 	"time"
 )
 
@@ -45,111 +43,88 @@ func (p *ProvisionRepo) GetAllIds() ([]int, error) {
 	return ids, nil
 }
 
-func (p *ProvisionRepo) CreateProvision(provision models.BodyProvision, id int) (*models.CreateProvision, error) {
+func (p *ProvisionRepo) CreateProvision(provision models.BodyProvision, id int) error {
 
 	query := "insert into provision (id, type, animal_type, quantity) values ($1, $2, $3, $4) returning *"
 	_, err := p.Conn.Exec(query, id, provision.Type, provision.AnimalType, provision.Quantity)
 	if err != nil {
-		return nil, err
-	}
-	var cProvision models.CreateProvision
-	var createdPrv models.CreateProvision
-	err = p.Conn.QueryRow(query,
-		cProvision.ID,
-		cProvision.Type,
-		cProvision.AnimalType,
-		cProvision.Quantity).Scan(
-		&createdPrv.ID,
-		&createdPrv.Type,
-		&createdPrv.AnimalType,
-		&createdPrv.Quantity,
-	)
-	if err != nil {
-		return nil, err
+		return err
 	}
 
-	return &createdPrv, nil
+	return nil
 }
 
-func (p *ProvisionRepo) GetAllProvision(filter models.Filter) (*models.GetAllProvisions, error) {
+func (p *ProvisionRepo) GetAllProvision(filter models.Filter, typ, animal_type string, quantity float64) ([]models.GetProvision, error) {
 	var provisions []models.GetProvision
+
+	query := "SELECT id, type, quantity FROM provision"
+	var args []interface{}
+	var conditions []string
+
+	if typ != "" {
+		args = append(args, typ)
+		conditions = append(conditions, fmt.Sprintf("type = $%d", len(args)))
+	}
+	if animal_type != "" {
+		args = append(args, animal_type)
+		conditions = append(conditions, fmt.Sprintf("animal_type = $%d", len(args)))
+	}
+	if quantity != 0 {
+		args = append(args, quantity)
+		conditions = append(conditions, fmt.Sprintf("quantity >= $%d", len(args)))
+	}
+
+	if len(conditions) > 0 {
+		query += " WHERE " + conditions[0]
+		for i := 1; i < len(conditions); i++ {
+			query += " AND " + conditions[i]
+		}
+	}
 
 	var limit int
 
-	p.Conn.QueryRow("select count(1) from provision").Scan(&limit)
+	_ = p.Conn.QueryRow("SELECT COUNT(1) FROM provision WHERE deleted_at=0").Scan(&limit)
 
 	if filter.Limit == 0 {
 		filter.Limit = limit
 	}
-	query := "select id, type, quantity from provision LIMIT $1 OFFSET $2"
-	rows, err := p.Conn.Query(query, filter.Limit, filter.OFFSET)
+	args = append(args, filter.Limit, filter.OFFSET)
+	query += fmt.Sprintf(" LIMIT $%d OFFSET $%d", len(args)-1, len(args))
+
+	rows, err := p.Conn.Query(query, args...)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
 
-	var i int16
 	for rows.Next() {
 		var pr models.GetProvision
-		err = rows.Scan(
-			&pr.ID,
-			&pr.Type,
-			&pr.Quantity,
-		)
+		err = rows.Scan(&pr.ID, &pr.Type, &pr.Quantity)
 		if err != nil {
 			return nil, err
 		}
 		provisions = append(provisions, pr)
-		i++
 	}
 
-	return &models.GetAllProvisions{Count: i, Provisions: &provisions}, err
+	return provisions, nil
 }
+func (p *ProvisionRepo) GetProvisionById(id int) (*models.GetProvision, error) {
+	res := models.GetProvision{}
+	query := `select id, type, quantity from provision where id=$1`
 
-func (p *ProvisionRepo) GetProvision(id int, typ, animal_type string, quantity float64) (*models.GetProvision, error) {
-	query := `select id, type, quantity from provision where `
-	var args []interface{}
-	var conditions []string
+	err := p.Conn.QueryRow(query, id).Scan(
+		&res.ID,
+		&res.Type,
+		&res.Quantity,
+	)
 
-	if id != 0 {
-		args = append(args, id)
-		conditions = append(conditions, "id = $"+strconv.Itoa(len(args)))
-	}
-	if typ != "" {
-		args = append(args, typ)
-		conditions = append(conditions, "type = $"+strconv.Itoa(len(args)))
-	}
-	if animal_type != "" {
-		args = append(args, animal_type)
-		conditions = append(conditions, "animal_type = $"+strconv.Itoa(len(args)))
-	}
-	if quantity != 0 {
-		args = append(args, quantity)
-		conditions = append(conditions, "quantity <= $"+strconv.FormatFloat(quantity, 'f', 10, 32))
-	}
-
-	if len(args) > 1 {
-		query += " " + strings.Join(conditions, " and ")
-	} else {
-		query += " " + conditions[0]
-	}
-
-	var provision models.GetProvision
-	err := p.Conn.QueryRow(query, args...).
-		Scan(
-			&provision.ID,
-			&provision.Type,
-			&provision.Quantity,
-		)
-
-	return &provision, err
+	return &res, err
 }
 
 func (p *ProvisionRepo) UpdateProvision(provision *models.UpdateProvision, id int) error {
-	query := "update provision set type = $1, quantity = $2,  updated_at=now() where id = $3"
+	query := "UPDATE provision SET type = $1, quantity = $2, updated_at = now() WHERE id = $3"
 
 	_, err := p.Conn.Exec(query, provision.Type, provision.Quantity, id)
-
 	return err
 }
 
@@ -162,17 +137,24 @@ func (p *ProvisionRepo) DeleteProvision(id int) error {
 
 	return err
 }
+
 func (p *ProvisionRepo) ProvisionData(animal_type string) (bool, error) {
 	var provision models.Provision
 	var quantity float64
 	query := "select sum(avg_consumption) from animals where animal_type = $1"
 
-	err := p.Conn.QueryRow(query, animal_type).Scan(&quantity)
+	err := p.Conn.QueryRow(query, animal_type).Scan(
+		&quantity,
+	)
 	if err != nil {
 		return false, err
 	}
+
 	query = "select quantity from provision where animal_type=$1"
-	err = p.Conn.QueryRow(query, animal_type).Scan(&provision.Quantity)
+
+	err = p.Conn.QueryRow(query, animal_type).Scan(
+		&provision.Quantity,
+	)
 	if err != nil {
 		return false, err
 	}

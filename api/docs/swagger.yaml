@@ -68,6 +68,19 @@ definitions:
       type:
         type: string
     type: object
+  models.FeedingSchedule:
+    properties:
+      animalType:
+        type: string
+      id:
+        type: integer
+      lastFedIndex:
+        type: integer
+      nextFedIndex:
+        type: integer
+      scheduleID:
+        type: integer
+    type: object
   models.GetAllProvisions:
     properties:
       count:
@@ -93,6 +106,66 @@ definitions:
       isHealthy:
         type: boolean
       medication:
+        type: string
+    type: object
+  models.MedicarionaGrouped:
+    properties:
+      medications:
+        items:
+          $ref: '#/definitions/models.MedicinesGetAll'
+        type: array
+    type: object
+  models.Medications:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      quantity:
+        type: number
+      type:
+        type: string
+    type: object
+  models.MedicationsGet:
+    properties:
+      name:
+        type: string
+      quantity:
+        type: number
+      type:
+        type: string
+    type: object
+  models.MedicinesGetAll:
+    properties:
+      count:
+        type: integer
+      medications:
+        items:
+          $ref: '#/definitions/models.MedicationsGet'
+        type: array
+      type:
+        type: string
+    type: object
+  models.Schedule:
+    properties:
+      animalType:
+        type: string
+      id:
+        type: integer
+      time1:
+        type: string
+      time2:
+        type: string
+      time3:
+        type: string
+    type: object
+  models.ScheduleCreate:
+    properties:
+      time1:
+        type: string
+      time2:
+        type: string
+      time3:
         type: string
     type: object
   models.UpdateProvision:
@@ -265,6 +338,30 @@ paths:
       summary: Get All Animals
       tags:
       - Animal
+  /dashboard/check-provision:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve provision data
+      operationId: checkprovision
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 'Animals:'
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Checks quantity of provision and returns if it's enough for 6 days
+      tags:
+      - Dashboard
   /dashboard/get-animals-count:
     get:
       consumes:
@@ -289,6 +386,388 @@ paths:
       summary: Get the count of animals
       tags:
       - Dashboard
+  /dashboard/get-avg-weight:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve the average weight of animals in the system
+      operationId: getavgweight
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Animals count
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Gets the average weight of animals
+      tags:
+      - Dashboard
+  /dashboard/get-hungry-animals:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve the list of hungry animals
+      operationId: gethungryanimals
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 'Animals:'
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Gets the count and list of hungry animals
+      tags:
+      - Dashboard
+  /dashboard/get-sick-animals:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve the list of sick animals
+      operationId: getsickanimals
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 'Animals:'
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Gets the count and list of sick animals
+      tags:
+      - Dashboard
+  /feeding:
+    get:
+      consumes:
+      - application/json
+      description: feeds the given animals given provision
+      operationId: feed_animals
+      parameters:
+      - description: Animal type
+        in: query
+        name: animal
+        required: true
+        type: string
+      - description: Provision type
+        in: query
+        name: provision
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: animals are succesfully fed
+          schema:
+            type: string
+        "400":
+          description: Could not feed the animals
+          schema:
+            type: string
+        "500":
+          description: server error
+          schema:
+            type: string
+      summary: feeds the animals
+      tags:
+      - Animal
+  /feeding_schedule:
+    post:
+      consumes:
+      - application/json
+      description: Create a new feeding schedule
+      operationId: create_feeding_schedule
+      parameters:
+      - description: Feeding Schedule data
+        in: body
+        name: feedingSchedule
+        required: true
+        schema:
+          $ref: '#/definitions/models.FeedingSchedule'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.FeedingSchedule'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Create Feeding Schedule
+      tags:
+      - FeedingSchedule
+    put:
+      consumes:
+      - application/json
+      description: Update a feeding schedule by ID
+      operationId: update_feeding_schedule
+      parameters:
+      - description: Feeding Schedule data
+        in: body
+        name: feedingSchedule
+        required: true
+        schema:
+          $ref: '#/definitions/models.FeedingSchedule'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: feeding schedule is successfully updated
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Update Feeding Schedule
+      tags:
+      - FeedingSchedule
+  /feeding_schedule/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a feeding schedule by ID
+      operationId: delete_feeding_schedule
+      parameters:
+      - description: Feeding Schedule ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: feeding schedule is successfully deleted
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Delete Feeding Schedule
+      tags:
+      - FeedingSchedule
+    get:
+      consumes:
+      - application/json
+      description: Get a feeding schedule by ID
+      operationId: get_feeding_schedule
+      parameters:
+      - description: Feeding Schedule ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.FeedingSchedule'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Server Error
+          schema:
+            type: string
+      summary: Get Feeding Schedule by ID
+      tags:
+      - FeedingSchedule
+  /medication:
+    get:
+      consumes:
+      - application/json
+      description: Get a medication by ID, name, or type
+      parameters:
+      - description: Medication ID
+        in: query
+        name: id
+        type: integer
+      - description: Medication Name
+        in: query
+        name: name
+        type: string
+      - description: Medication Type
+        in: query
+        name: type
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Medications'
+        "400":
+          description: Could not bind JSON
+          schema:
+            type: string
+      summary: Get a medication by ID, name, or type
+      tags:
+      - Medication
+    post:
+      consumes:
+      - application/json
+      description: Create a new medication
+      parameters:
+      - description: Medication data
+        in: body
+        name: medication
+        required: true
+        schema:
+          $ref: '#/definitions/models.MedicationsGet'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Medications'
+        "400":
+          description: Could not bind JSON
+          schema:
+            type: string
+      summary: Create a new medication
+      tags:
+      - Medication
+    put:
+      consumes:
+      - application/json
+      description: Update a medication
+      parameters:
+      - description: Medication data
+        in: body
+        name: medication
+        required: true
+        schema:
+          $ref: '#/definitions/models.Medications'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: medication is successfully updated
+          schema:
+            type: string
+        "400":
+          description: Could not bind JSON
+          schema:
+            type: string
+        "500":
+          description: Server error
+          schema:
+            type: string
+      summary: Update a medication
+      tags:
+      - Medication
+  /medication/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a medication by ID
+      parameters:
+      - description: Medication ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Medication is successfully deleted
+          schema:
+            type: string
+        "400":
+          description: Could not bind JSON
+          schema:
+            type: string
+      summary: Delete a medication by ID
+      tags:
+      - Medication
+  /medications:
+    get:
+      consumes:
+      - application/json
+      description: Get medications grouped by type
+      parameters:
+      - description: Medication Type
+        in: query
+        name: type
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MedicarionaGrouped'
+        "400":
+          description: Could not bind JSON
+          schema:
+            type: string
+      summary: Get medications grouped by type
+      tags:
+      - Medication
+  /medications/all:
+    get:
+      consumes:
+      - application/json
+      description: Get medications grouped by type
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MedicarionaGrouped'
+        "400":
+          description: Could not bind JSON
+          schema:
+            type: string
+      summary: Get medications grouped by type
+      tags:
+      - Medication
   /provision:
     get:
       consumes:
@@ -435,4 +914,114 @@ paths:
       summary: Get Provision By ID
       tags:
       - Provision
+  /schedule:
+    post:
+      consumes:
+      - application/json
+      description: Create a new schedule
+      operationId: create_schedule
+      parameters:
+      - description: Schedule data
+        in: body
+        name: schedule
+        required: true
+        schema:
+          $ref: '#/definitions/models.ScheduleCreate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Schedule'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.Schedule'
+      summary: Create a new schedule
+      tags:
+      - Schedule
+  /schedule/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a schedule by ID
+      parameters:
+      - description: Schedule ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Schedule is successfully deleted
+          schema:
+            type: string
+        "400":
+          description: Could not bind JSON
+          schema:
+            type: string
+      summary: Delete a schedule by ID
+      tags:
+      - Schedule
+    get:
+      consumes:
+      - application/json
+      description: Get a schedule by ID
+      parameters:
+      - description: Schedule ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Schedule'
+        "400":
+          description: Could not bind JSON
+          schema:
+            type: string
+      summary: Get a schedule by ID
+      tags:
+      - Schedule
+    put:
+      consumes:
+      - application/json
+      description: Update a schedule
+      parameters:
+      - description: Schedule ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Schedule data
+        in: body
+        name: schedule
+        required: true
+        schema:
+          $ref: '#/definitions/models.ScheduleCreate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Schedule is successfully updated
+          schema:
+            type: string
+        "400":
+          description: Could not bind JSON
+          schema:
+            type: string
+      summary: Update a schedule
+      tags:
+      - Schedule
 swagger: "2.0"

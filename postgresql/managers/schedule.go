@@ -76,7 +76,7 @@ func NewFeedingScheduleRepo(db *sql.DB) *FeedingScheduleRepo {
 }
 
 func (r *FeedingScheduleRepo) CreateFeedingSchedule(fs *models.FeedingSchedule) (*models.FeedingSchedule, error) {
-	query := `INSERT INTO feeding_schedule (
+	query := `INSERT INTO feeding_schedules (
 		id, 
 		animal_type, 
 		last_fed_index, 
@@ -107,7 +107,7 @@ func (r *FeedingScheduleRepo) GetFeedingSchedule(id int) (*models.FeedingSchedul
 		animal_type, 
 		last_fed_index, 
 		next_fed_index, 
-		schedule_id FROM feeding_schedule WHERE id = $1`
+		schedule_id FROM feeding_schedules WHERE id = $1`
 	var feedingSchedule models.FeedingSchedule
 	err := r.DB.QueryRow(query, id).Scan(
 		&feedingSchedule.ID,
@@ -124,19 +124,19 @@ func (r *FeedingScheduleRepo) GetFeedingSchedule(id int) (*models.FeedingSchedul
 func (r *FeedingScheduleRepo) UpdateFeedingSchedule(fs *models.FeedingSchedule) error {
 	lfi := strconv.Itoa(fs.LastFedIndex)
 	nfi := strconv.Itoa(fs.NextFedIndex)
-	query := `UPDATE feeding_schedule SET animal_type = $1, last_fed_index = $2, next_fed_index = $3, schedule_id = $4 WHERE id = $5`
+	query := `UPDATE feeding_schedules SET animal_type = $1, last_fed_index = $2, next_fed_index = $3, schedule_id = $4 WHERE id = $5`
 	_, err := r.DB.Exec(query, fs.AnimalType, lfi, nfi, fs.ScheduleID, fs.ID)
 	return err
 }
 
 func (r *FeedingScheduleRepo) DeleteFeedingSchedule(id int) error {
-	query := `DELETE FROM feeding_schedule WHERE id = $1`
+	query := `DELETE FROM feeding_schedules WHERE id = $1`
 	_, err := r.DB.Exec(query, id)
 	return err
 }
 func (r *FeedingScheduleRepo) GetAllFeedingScheduleIDs() ([]int, error) {
 	var ids []int
-	query := `SELECT id FROM feeding_schedule`
+	query := `SELECT id FROM feeding_schedules`
 	rows, err := r.DB.Query(query)
 	if err != nil {
 		return nil, err

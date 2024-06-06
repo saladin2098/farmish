@@ -12,6 +12,8 @@ type FeedingRepo struct {
 	DB *sql.DB
 }
 
+var TimeNow = time.Now
+
 var timeNow = time.Now
 
 func NewFeedingRepo(db *sql.DB) *FeedingRepo {
@@ -19,7 +21,7 @@ func NewFeedingRepo(db *sql.DB) *FeedingRepo {
 }
 func (r *FeedingRepo) GetAllFeedingSheduleIDs() (*[]int, error) {
 	var ids []int
-	query := `SELECT id FROM feeding_schedule`
+	query := `SELECT id FROM feeding_schedules`
 	rows, err := r.DB.Query(query)
 	if err != nil {
 		return nil, err
@@ -53,7 +55,7 @@ func (r *FeedingRepo) FeedAnimals(animal string, provision string) error {
 	}()
 
 	var scheduleID, lastFedIndex, nextFedIndex int
-	err = tr.QueryRow(`SELECT schedule_id, last_fed_index, next_fed_index FROM feeding_schedule WHERE animal_type = $1`, animal).Scan(&scheduleID, &lastFedIndex, &nextFedIndex)
+	err = tr.QueryRow(`SELECT schedule_id, last_fed_index, next_fed_index FROM feeding_schedules WHERE animal_type = $1`, animal).Scan(&scheduleID, &lastFedIndex, &nextFedIndex)
 	if err != nil {
 		if err == sql.ErrNoRows {
 			return errors.New("feeding schedule not found for the given animal")
@@ -166,7 +168,7 @@ func (r *FeedingRepo) FeedAnimals(animal string, provision string) error {
 		return err
 	}
 
-	_, err = tr.Exec(`UPDATE feeding_schedule SET last_fed_index = $1, next_fed_index = $2 WHERE animal_type = $3`, lastFedIndex, nextFedIndex, animal)
+	_, err = tr.Exec(`UPDATE feeding_schedules SET last_fed_index = $1, next_fed_index = $2 WHERE animal_type = $3`, lastFedIndex, nextFedIndex, animal)
 	if err != nil {
 		return err
 	}

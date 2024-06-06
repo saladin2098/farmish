@@ -130,3 +130,23 @@ func (h *HTTPHandler) GetMedicationsGroupedByType(c *gin.Context) {
 	}
 	c.JSON(200, med)
 }
+
+// GetAllMedications godoc
+// @Summary Get medications grouped by type
+// @Description Get medications grouped by type
+// @Tags Medication
+// @Accept json
+// @Produce json
+// @Success 200 {object} models.MedicarionaGrouped
+// @Failure 400 {string} string "Could not bind JSON"
+// @Router /medications/all [GET]
+func (h *HTTPHandler) GetAllMedications(c *gin.Context) {
+	tur := c.Query("type")
+	med, err := h.Service.MedS.GetMedicationsGroupedByType(tur)
+	if err != nil {
+		h.Logger.ERROR.Printf("Could not bind JSON: %s", err.Error())
+		c.String(400, "Could not bind JSON:"+err.Error())
+		return
+	}
+	c.JSON(200, med)
+}

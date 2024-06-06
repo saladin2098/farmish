@@ -69,6 +69,7 @@ func (d *Dashboard) GetHungryAnimals() (*models.AnimalsGetAll, error) {
 	return &result, nil
 }
 
+// animals, poultries
 func (d *Dashboard) CheckProvision() (bool, bool, error) {
 	pr_anim, err := d.Service.PS.ProvisionData("hayvon")
 	if err != nil {

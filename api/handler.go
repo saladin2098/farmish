@@ -17,10 +17,10 @@ func NewGin(h *handlers.HTTPHandler) *gin.Engine {
 
 	dash := r.Group("/dashboard")
 	dash.GET("/get-animals-count", h.GetAnimalsCount)
-	dash.GET("/get-awg-weight", h.GetAvgWeight)
-	// dash.GET("/get-sick-animals")
-	// dash.GET("/get-hungry-animals")
-	// dash.GET("/check-provision")
+	dash.GET("/get-avg-weight", h.GetAvgWeight)
+	dash.GET("/get-sick-animals", h.GetSickAnimals)
+	dash.GET("/get-hungry-animals", h.GetHungryAnimals)
+	dash.GET("/check-provision", h.CheckProvision)
 
 	animal := r.Group("/animal")
 	animal.POST("/", h.CreateAnimal)
@@ -31,8 +31,8 @@ func NewGin(h *handlers.HTTPHandler) *gin.Engine {
 
 	provision := r.Group("/provision")
 	provision.POST("/", h.CreateProvision)
-	provision.GET("/", h.GetProvision)
-	provision.GET("/get", h.GetAllProviison)
+	provision.GET("/", h.GetProvisionById)
+	provision.GET("/get", h.GetAllProvision)
 	provision.PUT("/:id", h.UpdateProvision)
 	provision.DELETE("/:id", h.DeleteProvision)
 
@@ -43,6 +43,7 @@ func NewGin(h *handlers.HTTPHandler) *gin.Engine {
 	r.PUT("/medication", h.UpdateMedication)
 	r.DELETE("/medication/:id", h.DeleteMedication)
 	r.GET("/medications", h.GetMedicationsGroupedByType)
+	r.GET("/medications/all", h.GetAllMedications)
 
 	r.POST("/schedule", h.CreateSchedule)
 	r.GET("/schedule/:id", h.GetSchedule)

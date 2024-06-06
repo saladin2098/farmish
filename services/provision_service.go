@@ -15,41 +15,41 @@ func NewProvisionService(pr *managers.ProvisionRepo) *ProvisionService {
 	return &ProvisionService{PR: pr}
 }
 
-func (p *ProvisionService) CreateProvision(prs *models.BodyProvision) (*models.CreateProvision, error) {
+func (p *ProvisionService) CreateProvision(prs *models.BodyProvision) error {
 
 	ids, err := p.PR.GetAllIds()
 	fmt.Println(ids)
 	if err != nil {
-		return nil, err
+		return err
 	}
 
 	id, err := config.GenNewID(ids)
 	if err != nil {
-		return nil, err
+		return err
 	}
 
-	createdProvision, err := p.PR.CreateProvision(*prs, id)
+	err = p.PR.CreateProvision(*prs, id)
 	if err != nil {
-		return nil, err
+		return err
 	}
 
-	return createdProvision, nil
+	return nil
 }
 
-func (p *ProvisionService) GetProvision(id int, typ, animal_type string, quantity float64) (*models.GetProvision, error) {
-	provision, err := p.PR.GetProvision(id, typ, animal_type, quantity)
+func (p *ProvisionService) GetProvisionById(id int) (*models.GetProvision, error) {
+	provision, err := p.PR.GetProvisionById(id)
 
 	return provision, err
 }
 
-func (p *ProvisionService) GetAllProvision(filter models.Filter) (*models.GetAllProvisions, error) {
-	provisions, err := p.PR.GetAllProvision(filter)
+func (p *ProvisionService) GetAllProvision(filter models.Filter, typ, animalTaye string, quantity float64) (*[]models.GetProvision, error) {
+	provisions, err := p.PR.GetAllProvision(filter, typ, animalTaye, quantity)
 
-	return provisions, err
+	return &provisions, err
 }
 
 func (p *ProvisionService) UpdateProvision(prs *models.UpdateProvision, id int) (*models.UpdateProvision, error) {
-	oldPrs, err := p.PR.GetProvision(id, "", "", 0)
+	oldPrs, err := p.PR.GetProvisionById(id)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +61,7 @@ func (p *ProvisionService) UpdateProvision(prs *models.UpdateProvision, id int) 
 	} else {
 		updatePrs.Type = prs.Type
 	}
-	if prs.Quantity != 0 {
+	if prs.Quantity == 0 {
 		updatePrs.Quantity = oldPrs.Quantity
 	} else {
 		updatePrs.Quantity = prs.Quantity

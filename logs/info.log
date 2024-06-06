@@ -200,3 +200,269 @@
 [WARN]  2024/06/06 10:16:14 notification.go:46: 5 ta hayvonlar och qoldi!!!
 [WARN]  2024/06/06 10:16:19 notification.go:46: 5 ta hayvonlar och qoldi!!!
 [WARN]  2024/06/06 10:16:24 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[INFO]  2024/06/06 11:25:46 main.go:77: Server started on port: :8080
+[WARN]  2024/06/06 11:25:46 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:25:51 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:25:56 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:26:01 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:26:06 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:26:11 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:26:16 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:26:21 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:26:26 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:26:31 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:26:36 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:26:41 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:26:46 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:26:51 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:26:56 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:27:01 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[ERROR]  2024/06/06 11:27:02 feeding.go:23: Could not bind JSON: pq: relation "feeding_schedule" does not exist
+[WARN]  2024/06/06 11:27:06 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:27:11 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[INFO]  2024/06/06 11:27:54 main.go:77: Server started on port: :8080
+[WARN]  2024/06/06 11:27:54 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:27:59 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:28:04 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[ERROR]  2024/06/06 11:28:05 feeding.go:23: Could not bind JSON: next schedule is at 07:00. You can start feeding animals from 06:00
+[WARN]  2024/06/06 11:28:09 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:28:14 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:28:19 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:28:24 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:28:29 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:28:34 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:28:39 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:28:44 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:28:49 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:28:54 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:28:59 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:29:04 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:29:09 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:29:14 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:29:19 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:29:24 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:29:29 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:29:34 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:29:39 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:29:44 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:29:49 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:29:54 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:29:59 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:30:04 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:30:09 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:30:14 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:30:19 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:30:24 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:30:29 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:30:34 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[ERROR]  2024/06/06 11:30:35 feeding_schedule.go:86: Could not bind JSON: pq: relation "feeding_schedule" does not exist
+[WARN]  2024/06/06 11:30:39 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:30:44 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:30:49 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:30:54 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:30:59 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:31:04 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:31:09 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[INFO]  2024/06/06 11:31:16 main.go:77: Server started on port: :8080
+[WARN]  2024/06/06 11:31:16 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[ERROR]  2024/06/06 11:31:19 feeding_schedule.go:86: Could not bind JSON: pq: relation "feeding_schedule" does not exist
+[WARN]  2024/06/06 11:31:21 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:31:26 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:31:31 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:31:36 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[INFO]  2024/06/06 11:31:43 main.go:77: Server started on port: :8080
+[WARN]  2024/06/06 11:31:43 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:31:43 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:31:43 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:31:48 notification.go:46: 3 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:31:48 notification.go:46: 3 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:31:53 notification.go:46: 3 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:31:58 notification.go:46: 3 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:32:03 notification.go:46: 3 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:32:08 notification.go:46: 3 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:32:13 notification.go:46: 3 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:32:18 notification.go:46: 3 ta hayvonlar och qoldi!!!
+[ERROR]  2024/06/06 11:32:37 feeding.go:23: Could not bind JSON: next schedule is at 07:00. You can start feeding animals from 06:00
+[ERROR]  2024/06/06 11:33:50 feeding.go:23: Could not bind JSON: next schedule is at 07:00. You can start feeding animals from 06:00
+[WARN]  2024/06/06 11:35:33 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:35:38 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:35:43 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[ERROR]  2024/06/06 11:35:45 feeding.go:23: Could not bind JSON: next schedule is at 07:00. You can start feeding animals from 06:00
+[WARN]  2024/06/06 11:35:48 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:35:53 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:35:58 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:36:03 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:36:08 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:36:13 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[ERROR]  2024/06/06 11:36:17 feeding.go:23: Could not bind JSON: next schedule is at 07:00. You can start feeding animals from 06:00
+[WARN]  2024/06/06 11:36:18 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:36:23 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[ERROR]  2024/06/06 11:36:23 feeding.go:23: Could not bind JSON: next schedule is at 07:00. You can start feeding animals from 06:00
+[WARN]  2024/06/06 11:36:28 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:36:33 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:36:38 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:36:43 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:36:48 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:36:53 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:36:58 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:37:03 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:37:08 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:37:13 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:37:18 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:37:23 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:37:28 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:37:33 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:37:38 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:37:43 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:37:48 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:37:53 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:37:58 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:38:03 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:38:08 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:38:13 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:38:18 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:38:23 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:38:28 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:38:33 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:38:38 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:38:43 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:38:48 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:38:53 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:38:58 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:39:03 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:39:08 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:39:13 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:39:18 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:39:23 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:39:28 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:39:33 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:39:38 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:39:43 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:39:48 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:39:53 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:39:58 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:40:03 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:40:08 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:40:13 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:40:18 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:40:23 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:40:28 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:40:33 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:40:38 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:40:43 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:40:48 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:40:53 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:40:58 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:41:03 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:41:08 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:41:13 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:41:18 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:41:23 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:41:28 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:41:33 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:41:38 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:41:43 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:41:48 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:41:53 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:41:58 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:42:03 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:42:08 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[INFO]  2024/06/06 11:42:13 main.go:77: Server started on port: :8080
+[WARN]  2024/06/06 11:42:13 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[ERROR]  2024/06/06 11:42:13 notification.go:66: pq: syntax error at or near "animal_type"
+[ERROR]  2024/06/06 11:42:18 notification.go:66: pq: syntax error at or near "animal_type"
+[WARN]  2024/06/06 11:42:18 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:42:23 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[ERROR]  2024/06/06 11:42:23 notification.go:66: pq: syntax error at or near "animal_type"
+[ERROR]  2024/06/06 11:42:28 notification.go:66: pq: syntax error at or near "animal_type"
+[WARN]  2024/06/06 11:42:28 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:42:33 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[ERROR]  2024/06/06 11:42:33 notification.go:66: pq: syntax error at or near "animal_type"
+[ERROR]  2024/06/06 11:42:38 notification.go:66: pq: syntax error at or near "animal_type"
+[WARN]  2024/06/06 11:42:38 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:42:43 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[ERROR]  2024/06/06 11:42:43 notification.go:66: pq: syntax error at or near "animal_type"
+[ERROR]  2024/06/06 11:42:48 notification.go:66: pq: syntax error at or near "animal_type"
+[WARN]  2024/06/06 11:42:48 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:42:53 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[ERROR]  2024/06/06 11:42:53 notification.go:66: pq: syntax error at or near "animal_type"
+[WARN]  2024/06/06 11:42:58 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[ERROR]  2024/06/06 11:42:58 notification.go:66: pq: syntax error at or near "animal_type"
+[WARN]  2024/06/06 11:43:03 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[ERROR]  2024/06/06 11:43:03 notification.go:66: pq: syntax error at or near "animal_type"
+[INFO]  2024/06/06 11:43:05 main.go:77: Server started on port: :8080
+[WARN]  2024/06/06 11:43:05 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[ERROR]  2024/06/06 11:43:05 notification.go:66: pq: syntax error at or near "animal_type"
+[INFO]  2024/06/06 11:43:08 main.go:77: Server started on port: :8080
+[WARN]  2024/06/06 11:43:08 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:43:08 notification.go:78: Hayvonlarning yemishi oz qoldi
+[WARN]  2024/06/06 11:43:08 notification.go:81: Parrandalarning yemishi oz qoldi
+[WARN]  2024/06/06 11:43:13 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:43:13 notification.go:78: Hayvonlarning yemishi oz qoldi
+[WARN]  2024/06/06 11:43:13 notification.go:81: Parrandalarning yemishi oz qoldi
+[WARN]  2024/06/06 11:43:18 notification.go:78: Hayvonlarning yemishi oz qoldi
+[WARN]  2024/06/06 11:43:18 notification.go:81: Parrandalarning yemishi oz qoldi
+[WARN]  2024/06/06 11:43:18 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:43:23 notification.go:78: Hayvonlarning yemishi oz qoldi
+[WARN]  2024/06/06 11:43:23 notification.go:81: Parrandalarning yemishi oz qoldi
+[WARN]  2024/06/06 11:43:23 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:43:28 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:43:28 notification.go:78: Hayvonlarning yemishi oz qoldi
+[WARN]  2024/06/06 11:43:28 notification.go:81: Parrandalarning yemishi oz qoldi
+[WARN]  2024/06/06 11:43:33 notification.go:78: Hayvonlarning yemishi oz qoldi
+[WARN]  2024/06/06 11:43:33 notification.go:81: Parrandalarning yemishi oz qoldi
+[WARN]  2024/06/06 11:43:33 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[INFO]  2024/06/06 11:44:00 main.go:77: Server started on port: :8080
+[WARN]  2024/06/06 11:44:00 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:44:05 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:44:10 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:44:15 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:44:20 notification.go:78: Hayvonlarning yemishi oz qoldi
+[WARN]  2024/06/06 11:44:20 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:44:25 notification.go:78: Hayvonlarning yemishi oz qoldi
+[WARN]  2024/06/06 11:44:25 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:44:30 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:44:30 notification.go:78: Hayvonlarning yemishi oz qoldi
+[WARN]  2024/06/06 11:44:35 notification.go:78: Hayvonlarning yemishi oz qoldi
+[WARN]  2024/06/06 11:44:35 notification.go:81: Parrandalarning yemishi oz qoldi
+[WARN]  2024/06/06 11:44:35 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:44:40 notification.go:78: Hayvonlarning yemishi oz qoldi
+[WARN]  2024/06/06 11:44:40 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:44:45 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:44:50 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:44:55 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:45:00 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:45:05 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:45:10 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:45:15 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[ERROR]  2024/06/06 11:45:16 feeding.go:23: Could not bind JSON: next schedule is at 07:00. You can start feeding animals from 06:00
+[WARN]  2024/06/06 11:45:20 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:45:25 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:45:30 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:45:35 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:45:40 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[INFO]  2024/06/06 11:45:44 main.go:77: Server started on port: :8080
+[WARN]  2024/06/06 11:45:44 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:45:49 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:45:54 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:45:59 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:46:04 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:46:09 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:46:14 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:46:19 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:46:24 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:46:29 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:46:29 notification.go:57: 5 ta hayvonlar kasal!!!
+[WARN]  2024/06/06 11:46:34 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:46:34 notification.go:57: 5 ta hayvonlar kasal!!!
+[WARN]  2024/06/06 11:46:39 notification.go:57: 5 ta hayvonlar kasal!!!
+[WARN]  2024/06/06 11:46:39 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:46:44 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:46:49 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:46:54 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:46:59 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:47:04 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:47:09 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[WARN]  2024/06/06 11:47:14 notification.go:46: 5 ta hayvonlar och qoldi!!!
+[INFO]  2024/06/06 11:47:29 main.go:77: Server started on port: :8080
+[WARN]  2024/06/06 11:47:29 notification.go:46: 5 ta hayvonlar och qoldi!!!
