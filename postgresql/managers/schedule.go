@@ -3,25 +3,24 @@ package managers
 import (
 	"database/sql"
 	"farmish/models"
+	"strconv"
 )
 
 type ScheduleRepo struct {
 	DB *sql.DB
 }
 
-func NewScheduleRepo(conn *sql.DB) *ScheduleRepo {
-	return &ScheduleRepo{DB: conn}
+func NewScheduleRepo(db *sql.DB) *ScheduleRepo {
+	return &ScheduleRepo{DB: db}
 }
-
-func (m *ScheduleRepo) GetAllScheduleIds() ([]int, error) {
-	query := "SELECT id FROM schedules"
-	rows, err := m.DB.Query(query)
+func (r *ScheduleRepo) GetAllScheduleIDs() (*[]int, error) {
+	var ids []int
+	query := `select id from schedules`
+	rows, err := r.DB.Query(query)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
-
-	var ids []int
 	for rows.Next() {
 		var id int
 		err := rows.Scan(&id)
@@ -30,7 +29,10 @@ func (m *ScheduleRepo) GetAllScheduleIds() ([]int, error) {
 		}
 		ids = append(ids, id)
 	}
-	return ids, nil
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return &ids, nil
 }
 
 func (r *ScheduleRepo) CreateSchedule(s *models.Schedule) (*models.Schedule, error) {
@@ -81,11 +83,13 @@ func (r *FeedingScheduleRepo) CreateFeedingSchedule(fs *models.FeedingSchedule) 
 		next_fed_index, 
 		schedule_id) VALUES ($1, $2, $3, $4, $5) RETURNING id, animal_type, last_fed_index, next_fed_index, schedule_id`
 	var createdFeedingSchedule models.FeedingSchedule
+	lfi := strconv.Itoa(fs.LastFedIndex)
+	nfi := strconv.Itoa(fs.NextFedIndex)
 	err := r.DB.QueryRow(query,
 		fs.ID,
 		fs.AnimalType,
-		fs.LastFedIndex,
-		fs.NextFedIndex,
+		lfi,
+		nfi,
 		fs.ScheduleID).Scan(
 		&createdFeedingSchedule.ID,
 		&createdFeedingSchedule.AnimalType,
@@ -118,8 +122,10 @@ func (r *FeedingScheduleRepo) GetFeedingSchedule(id int) (*models.FeedingSchedul
 }
 
 func (r *FeedingScheduleRepo) UpdateFeedingSchedule(fs *models.FeedingSchedule) error {
+	lfi := strconv.Itoa(fs.LastFedIndex)
+	nfi := strconv.Itoa(fs.NextFedIndex)
 	query := `UPDATE feeding_schedule SET animal_type = $1, last_fed_index = $2, next_fed_index = $3, schedule_id = $4 WHERE id = $5`
-	_, err := r.DB.Exec(query, fs.AnimalType, fs.LastFedIndex, fs.NextFedIndex, fs.ScheduleID, fs.ID)
+	_, err := r.DB.Exec(query, fs.AnimalType, lfi, nfi, fs.ScheduleID, fs.ID)
 	return err
 }
 
@@ -127,4 +133,25 @@ func (r *FeedingScheduleRepo) DeleteFeedingSchedule(id int) error {
 	query := `DELETE FROM feeding_schedule WHERE id = $1`
 	_, err := r.DB.Exec(query, id)
 	return err
+}
+func (r *FeedingScheduleRepo) GetAllFeedingScheduleIDs() ([]int, error) {
+	var ids []int
+	query := `SELECT id FROM feeding_schedule`
+	rows, err := r.DB.Query(query)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	for rows.Next() {
+		var id int
+		err := rows.Scan(&id)
+		if err != nil {
+			return nil, err
+		}
+		ids = append(ids, id)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return ids, nil
 }

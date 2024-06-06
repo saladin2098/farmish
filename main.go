@@ -33,11 +33,20 @@ func main() {
 	ar := managers.NewAnimalRepo(db)
 	hr := managers.NewHealthConditionRepo(db)
 	pr := managers.NewProvisionRepo(db)
+	fs := managers.NewFeedingRepo(db)
+	ms := managers.NewMidacationRepo(db)
+	ss := managers.NewScheduleRepo(db)
+	fss := managers.NewFeedingScheduleRepo(db)
 
 	as := service.NewAnimalService(hr, ar)
 	hs := service.NewHealthConditionService(hr)
 	ps := service.NewProvisionService(pr)
-	service := service.NewService(*as, *hs, *ps)
+	feedingS := service.NewFeedingService(fs)
+	medS := service.NewMedicationService(ms)
+	scheduleS := service.NewSheduleService(ss)
+	feedingScheduleS := service.NewFeedingScheduleService(fss)
+
+	service := service.NewService(*as, *hs, *ps, *feedingS, *medS, *scheduleS, *feedingScheduleS)
 
 	dash := dashboard.NewDashboard(*service)
 	notif := dashboard.NewNotification(*logger, *dash)

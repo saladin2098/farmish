@@ -14,12 +14,6 @@ mig-create:
 mig-insert:
 	migrate create -ext sql -dir migrations -seq insert_table
 
-	
-gen-proto:
-	protoc --go_out=services/ \
-		--go-grpc_out=services/ \
-		services/protos/*.proto
-
 swag:
 	swag init -g api/handler.go -o api/docs
 

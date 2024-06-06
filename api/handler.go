@@ -36,5 +36,23 @@ func NewGin(h *handlers.HTTPHandler) *gin.Engine {
 	provision.PUT("/:id", h.UpdateProvision)
 	provision.DELETE("/:id", h.DeleteProvision)
 
+	r.GET("/feeding", h.FeedAnimals)
+
+	r.POST("/medication", h.CreateMedication)
+	r.GET("/medication", h.GetMedication)
+	r.PUT("/medication", h.UpdateMedication)
+	r.DELETE("/medication/:id", h.DeleteMedication)
+	r.GET("/medications", h.GetMedicationsGroupedByType)
+
+	r.POST("/schedule", h.CreateSchedule)
+	r.GET("/schedule/:id", h.GetSchedule)
+	r.PUT("/schedule/:id", h.UpdateSchedule)
+	r.DELETE("/schedule/:id", h.DeleteSchedule)
+
+	r.POST("/feeding_schedule", h.CreateFeedingSchedule)
+	r.GET("/feeding_schedule/:id", h.GetFeedingSchedule)
+	r.PUT("/feeding_schedule", h.UpdateFeedingSchedule)
+	r.DELETE("/feeding_schedule/:id", h.DeleteFeedingSchedule)
+
 	return r
 }

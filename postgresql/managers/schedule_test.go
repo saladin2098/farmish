@@ -1,6 +1,7 @@
 package managers
 
 import (
+	// "database/sql"
 	"farmish/models"
 	"testing"
 	"time"
