@@ -141,3 +141,10 @@
 [INFO]  2024/06/06 09:37:23 main.go:86: Server started on port: :8080
 [INFO]  2024/06/06 09:49:16 main.go:86: Server started on port: :8080
 [INFO]  2024/06/06 09:51:13 main.go:86: Server started on port: :8080
+[INFO]  2024/06/06 10:04:07 main.go:86: Server started on port: :8080
+[ERROR]  2024/06/06 10:04:13 feeding.go:25: Could not bind JSON: feeding schedule not found for the given animal
+[ERROR]  2024/06/06 10:06:56 feeding.go:25: Could not bind JSON: next schedule is at 07:00. You can start feeding animals from 06:00
+[ERROR]  2024/06/06 10:07:02 feeding.go:25: Could not bind JSON: next schedule is at 07:00. You can start feeding animals from 06:00
+[ERROR]  2024/06/06 10:07:04 feeding.go:25: Could not bind JSON: next schedule is at 07:00. You can start feeding animals from 06:00
+[ERROR]  2024/06/06 10:07:36 feeding.go:25: Could not bind JSON: next schedule is at 07:00. You can start feeding animals from 06:00
+[INFO]  2024/06/06 11:08:59 main.go:86: Server started on port: :8080

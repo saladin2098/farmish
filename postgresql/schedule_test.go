@@ -1,9 +1,9 @@
 package postgresql_test
 
 import (
-	// "database/sql"
 	"farmish/models"
 	"farmish/postgresql"
+	"strconv"
 	"testing"
 	"time"
 
@@ -97,29 +97,48 @@ func TestDeleteSchedule(t *testing.T) {
 }
 
 func TestCreateFeedingSchedule(t *testing.T) {
+	// Create mock DB and FeedingScheduleRepo
 	db, mock, err := sqlmock.New()
 	assert.NoError(t, err)
 	defer db.Close()
 
 	repo := postgresql.NewFeedingScheduleRepo(db)
 
-	feedingSchedule := &models.FeedingSchedule{
+	// Define the input and expected output
+	inputFS := &models.FeedingSchedule{
 		ID:           1,
-		AnimalType:   "Cow",
-		LastFedIndex: 1,
-		NextFedIndex: 2,
-		ScheduleID:   1,
+		AnimalType:   "ot",
+		LastFedIndex: 3,
+		NextFedIndex: 1,
+		ScheduleID:   20878,
 	}
 
-	mock.ExpectQuery("INSERT INTO feeding_schedules").
-		WithArgs(feedingSchedule.ID, feedingSchedule.AnimalType, feedingSchedule.LastFedIndex, feedingSchedule.NextFedIndex, feedingSchedule.ScheduleID).
-		WillReturnRows(sqlmock.NewRows([]string{"id", "animal_type", "last_fed_index", "next_fed_index", "schedule_id"}).
-			AddRow(feedingSchedule.ID, feedingSchedule.AnimalType, feedingSchedule.LastFedIndex, feedingSchedule.NextFedIndex, feedingSchedule.ScheduleID))
+	expectedFS := &models.FeedingSchedule{
+		ID:           1,
+		AnimalType:   "ot",
+		LastFedIndex: 3,
+		NextFedIndex: 1,
+		ScheduleID:   20878,
+	}
 
-	createdFeedingSchedule, err := repo.CreateFeedingSchedule(feedingSchedule)
+	// Mock the expected query and result
+	mock.ExpectQuery(`INSERT INTO feeding_schedule \(
+		id, 
+		animal_type, 
+		last_fed_index, 
+		next_fed_index, 
+		schedule_id\) VALUES \(\$1, \$2, \$3, \$4, \$5\) RETURNING id, animal_type, last_fed_index, next_fed_index, schedule_id`).
+		WithArgs(inputFS.ID, inputFS.AnimalType, strconv.Itoa(inputFS.LastFedIndex), strconv.Itoa(inputFS.NextFedIndex), inputFS.ScheduleID).
+		WillReturnRows(sqlmock.NewRows([]string{"id", "animal_type", "last_fed_index", "next_fed_index", "schedule_id"}).
+			AddRow(expectedFS.ID, expectedFS.AnimalType, expectedFS.LastFedIndex, expectedFS.NextFedIndex, expectedFS.ScheduleID))
+
+	// Call the function
+	actualFS, err := repo.CreateFeedingSchedule(inputFS)
+
+	// Assertions
 	assert.NoError(t, err)
-	assert.NotNil(t, createdFeedingSchedule)
-	assert.Equal(t, feedingSchedule.ID, createdFeedingSchedule.ID)
+	assert.Equal(t, expectedFS, actualFS)
+	assert.NoError(t, mock.ExpectationsWereMet())
 }
 
 func TestGetFeedingSchedule(t *testing.T) {
@@ -129,23 +148,25 @@ func TestGetFeedingSchedule(t *testing.T) {
 
 	repo := postgresql.NewFeedingScheduleRepo(db)
 
-	expectedFeedingSchedule := &models.FeedingSchedule{
+	inputID := 1
+	expectedFS := &models.FeedingSchedule{
 		ID:           1,
-		AnimalType:   "Cow",
-		LastFedIndex: 1,
-		NextFedIndex: 2,
-		ScheduleID:   1,
+		AnimalType:   "ot",
+		LastFedIndex: 3,
+		NextFedIndex: 1,
+		ScheduleID:   20878,
 	}
 
-	mock.ExpectQuery("SELECT id, animal_type, last_fed_index, next_fed_index, schedule_id FROM feeding_schedules WHERE id =").
-		WithArgs(expectedFeedingSchedule.ID).
+	mock.ExpectQuery(`SELECT id, animal_type, last_fed_index, next_fed_index, schedule_id FROM feeding_schedule WHERE id = \$1`).
+		WithArgs(inputID).
 		WillReturnRows(sqlmock.NewRows([]string{"id", "animal_type", "last_fed_index", "next_fed_index", "schedule_id"}).
-			AddRow(expectedFeedingSchedule.ID, expectedFeedingSchedule.AnimalType, expectedFeedingSchedule.LastFedIndex, expectedFeedingSchedule.NextFedIndex, expectedFeedingSchedule.ScheduleID))
+			AddRow(expectedFS.ID, expectedFS.AnimalType, expectedFS.LastFedIndex, expectedFS.NextFedIndex, expectedFS.ScheduleID))
 
-	feedingSchedule, err := repo.GetFeedingSchedule(expectedFeedingSchedule.ID)
+	actualFS, err := repo.GetFeedingSchedule(inputID)
+
 	assert.NoError(t, err)
-	assert.NotNil(t, feedingSchedule)
-	assert.Equal(t, expectedFeedingSchedule, feedingSchedule)
+	assert.Equal(t, expectedFS, actualFS)
+	assert.NoError(t, mock.ExpectationsWereMet())
 }
 
 func TestUpdateFeedingSchedule(t *testing.T) {
@@ -155,21 +176,24 @@ func TestUpdateFeedingSchedule(t *testing.T) {
 
 	repo := postgresql.NewFeedingScheduleRepo(db)
 
-	feedingSchedule := &models.FeedingSchedule{
+	inputFS := &models.FeedingSchedule{
 		ID:           1,
-		AnimalType:   "Cow",
-		LastFedIndex: 1,
-		NextFedIndex: 2,
-		ScheduleID:   1,
+		AnimalType:   "ot",
+		LastFedIndex: 3,
+		NextFedIndex: 1,
+		ScheduleID:   20878,
 	}
 
-	mock.ExpectExec("UPDATE feeding_schedules SET animal_type = \\$1, last_fed_index = \\$2, next_fed_index = \\$3, schedule_id = \\$4 WHERE id = \\$5").
-		WithArgs(feedingSchedule.AnimalType, feedingSchedule.LastFedIndex, feedingSchedule.NextFedIndex, feedingSchedule.ScheduleID, feedingSchedule.ID).
+	mock.ExpectExec(`UPDATE feeding_schedule SET animal_type = \$1, last_fed_index = \$2, next_fed_index = \$3, schedule_id = \$4 WHERE id = \$5`).
+		WithArgs(inputFS.AnimalType, strconv.Itoa(inputFS.LastFedIndex), strconv.Itoa(inputFS.NextFedIndex), inputFS.ScheduleID, inputFS.ID).
 		WillReturnResult(sqlmock.NewResult(1, 1))
 
-	err = repo.UpdateFeedingSchedule(feedingSchedule)
+	err = repo.UpdateFeedingSchedule(inputFS)
+
 	assert.NoError(t, err)
+	assert.NoError(t, mock.ExpectationsWereMet())
 }
+
 
 func TestDeleteFeedingSchedule(t *testing.T) {
 	db, mock, err := sqlmock.New()
@@ -178,10 +202,14 @@ func TestDeleteFeedingSchedule(t *testing.T) {
 
 	repo := postgresql.NewFeedingScheduleRepo(db)
 
-	mock.ExpectExec("DELETE FROM feeding_schedules WHERE id = \\$1").
-		WithArgs(1).
+	inputID := 1
+
+	mock.ExpectExec(`DELETE FROM feeding_schedule WHERE id = \$1`).
+		WithArgs(inputID).
 		WillReturnResult(sqlmock.NewResult(1, 1))
 
-	err = repo.DeleteFeedingSchedule(1)
+	err = repo.DeleteFeedingSchedule(inputID)
+
 	assert.NoError(t, err)
+	assert.NoError(t, mock.ExpectationsWereMet())
 }

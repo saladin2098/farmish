@@ -21,6 +21,7 @@ func NewGin(h *handlers.HTTPHandler) *gin.Engine {
 	r.PUT("/medication", h.UpdateMedication)
 	r.DELETE("/medication/:id", h.DeleteMedication)
 	r.GET("/medications", h.GetMedicationsGroupedByType)
+	r.GET("/medications/all", h.GetAllMedications)
 
 	r.POST("/schedule", h.CreateSchedule)
 	r.GET("/schedule/:id", h.GetSchedule)

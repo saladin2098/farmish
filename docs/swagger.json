@@ -443,6 +443,35 @@
                 }
             }
         },
+        "/medications/all": {
+            "get": {
+                "description": "Get medications grouped by type",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Medication"
+                ],
+                "summary": "Get medications grouped by type",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.MedicarionaGrouped"
+                        }
+                    },
+                    "400": {
+                        "description": "Could not bind JSON",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/schedule": {
             "post": {
                 "description": "Create a new schedule",

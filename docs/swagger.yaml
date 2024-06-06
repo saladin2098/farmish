@@ -364,6 +364,25 @@ paths:
       summary: Get medications grouped by type
       tags:
       - Medication
+  /medications/all:
+    get:
+      consumes:
+      - application/json
+      description: Get medications grouped by type
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.MedicarionaGrouped'
+        "400":
+          description: Could not bind JSON
+          schema:
+            type: string
+      summary: Get medications grouped by type
+      tags:
+      - Medication
   /schedule:
     post:
       consumes:

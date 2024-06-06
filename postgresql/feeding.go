@@ -11,6 +11,7 @@ import (
 type FeedingRepo struct {
 	DB *sql.DB
 }
+var TimeNow = time.Now
 
 var timeNow = time.Now
 
