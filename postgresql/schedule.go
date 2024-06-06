@@ -84,11 +84,8 @@ func (r *FeedingScheduleRepo) CreateFeedingSchedule(fs *models.FeedingSchedule) 
 		next_fed_index, 
 		schedule_id) VALUES ($1, $2, $3, $4, $5) RETURNING id, animal_type, last_fed_index, next_fed_index, schedule_id`
 	var createdFeedingSchedule models.FeedingSchedule
-	lfi := strconv.Itoa(createdFeedingSchedule.LastFedIndex)
-	nfi := strconv.Itoa(createdFeedingSchedule.NextFedIndex)
-
-	var v1 string
-	var v2 string
+	lfi := strconv.Itoa(fs.LastFedIndex)
+	nfi := strconv.Itoa(fs.NextFedIndex)
 	err := r.DB.QueryRow(query, 
 		fs.ID, 
 		fs.AnimalType, 
@@ -97,8 +94,8 @@ func (r *FeedingScheduleRepo) CreateFeedingSchedule(fs *models.FeedingSchedule) 
 		fs.ScheduleID).Scan(
 		&createdFeedingSchedule.ID, 
 		&createdFeedingSchedule.AnimalType, 
-		&v1, 
-		&v2, 
+		&createdFeedingSchedule.LastFedIndex, 
+		&createdFeedingSchedule.NextFedIndex, 
 		&createdFeedingSchedule.ScheduleID)
 	if err != nil {
 		return nil, err

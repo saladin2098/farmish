@@ -67,10 +67,10 @@ type ScheduleCreate struct {
 
 type FeedingSchedule struct {
 	ID           int
-	AnimalType   string
-	LastFedIndex int
-	NextFedIndex int
-	ScheduleID   int
+	AnimalType   string `json:"animal_type"`
+	LastFedIndex int  `json:"last_fed_index"`
+	NextFedIndex int  `json:"next_fed_index"`
+	ScheduleID   int `json:"schedule_id"`
 }
 
 type FeedingScheduleCreate struct {

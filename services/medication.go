@@ -4,6 +4,7 @@ import (
 	"farmish/config"
 	"farmish/models"
 	"farmish/postgresql"
+	"log"
 )
 
 type MedicationService struct {
@@ -23,11 +24,13 @@ func (s *MedicationService) CreateMedication(medication *models.MedicationsGet) 
 	if err!= nil {
         return nil, err
     }
+	log.Println(newID)
 	var redCreate models.Medications 
 	redCreate.ID = newID
 	redCreate.Name = medication.Name
 	redCreate.Type = medication.Type
 	redCreate.Quantity = medication.Quantity
+	log.Println(redCreate)
 	return s.MedRepo.CreateMedication(&redCreate)
 }
 

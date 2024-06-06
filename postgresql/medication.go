@@ -18,8 +18,6 @@ func NewMidacationRepo(db *sql.DB) *MedicationRepo {
 
 func (r *MedicationRepo) CreateMedication(med *m.Medications) (*m.Medications, error) {
 	var existingMed m.Medications
-
-	// Check if a medication with the same name and type exists
 	checkQuery := `SELECT id, name, type, quantity FROM medications WHERE name = $1 AND type = $2`
 	err := r.DB.QueryRow(checkQuery, med.Name, med.Type).Scan(
 		&existingMed.ID,
@@ -31,9 +29,9 @@ func (r *MedicationRepo) CreateMedication(med *m.Medications) (*m.Medications, e
 	}
 
 	if err == sql.ErrNoRows {
-		// Medication does not exist, insert new medication
-		insertQuery := `INSERT INTO medications(name, type, quantity) VALUES ($1, $2, $3) RETURNING id, name, type, quantity`
+		insertQuery := `INSERT INTO medications(id,name, type, quantity) VALUES ($1, $2, $3, $4) RETURNING id, name, type, quantity`
 		err = r.DB.QueryRow(insertQuery,
+			med.ID,
 			med.Name,
 			med.Type,
 			med.Quantity).Scan(
